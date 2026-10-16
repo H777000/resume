@@ -123,7 +123,23 @@ h1,h2{text-wrap:balance}
 .chip svg{width:15px;height:15px;flex:none;opacity:.85}
 .chip.tel{background:rgba(0,102,204,.07);border:1px solid rgba(0,102,204,.26)}
 .chip.mail{background:rgba(94,92,230,.07);border:1px solid rgba(94,92,230,.26)}
+.chip.wechat{background:rgba(22,173,106,.08);border:1px solid rgba(22,173,106,.28)}
+button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
 .chip:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(29,29,31,.08)}
+
+/* 微信二维码弹窗 */
+.wechat-modal{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;background:rgba(29,29,31,.45);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:opacity .3s}
+.wechat-modal.open{opacity:1;pointer-events:auto}
+.wechat-modal .modal-card{position:relative;background:#fff;border-radius:22px;padding:26px;width:min(420px,88vw);text-align:center;box-shadow:0 30px 80px rgba(29,29,31,.25);transform:translateY(14px) scale(.97);transition:transform .35s var(--ease)}
+.wechat-modal.open .modal-card{transform:none}
+.wechat-modal .modal-card img{width:100%;border-radius:12px}
+.wechat-modal .modal-title{font-size:16px;font-weight:600;margin:16px 0 4px}
+.wechat-modal .modal-sub{font-size:13px;color:var(--text3)}
+.wechat-modal .modal-close{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;background:rgba(29,29,31,.07);border:none;display:grid;place-items:center;cursor:pointer;color:var(--text2);transition:background .3s,color .3s}
+.wechat-modal .modal-close:hover{background:rgba(29,29,31,.15);color:var(--text)}
+.proj-desc{font-size:13px;color:var(--text3);margin-top:2px}
+.personal-grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:2px}
+@media (min-width:900px){.personal-grid{grid-template-columns:repeat(3,1fr)}}
 .scroll-hint{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--text3);font-size:12px;letter-spacing:.2em}
 .scroll-hint .mouse{width:23px;height:35px;border:1.5px solid var(--text3);border-radius:12px;position:relative}
 .scroll-hint .mouse::after{content:"";position:absolute;left:50%;top:6px;width:3px;height:7px;margin-left:-1.5px;border-radius:3px;background:var(--accent);animation:wheel 1.9s var(--ease) infinite}
@@ -312,7 +328,7 @@ h1,h2{text-wrap:balance}
       <p class="hero-role">AI 全栈开发工程师 · <b>平台工程化</b></p>
     </div>
     <div class="hero-tags" data-in="tags">
-      <span class="tag">Python</span><span class="tag">大模型工程化</span><span class="tag">RAG</span><span class="tag">异步架构</span><span class="tag">MLOps</span>
+      <span class="tag">Python</span><span class="tag">大模型工程化</span><span class="tag">RAG</span><span class="tag">异步架构</span><span class="tag">智能体编排</span>
     </div>
     <div class="hero-chips" data-in="chips">
       <a class="chip tel" href="tel:17744810952">
@@ -323,6 +339,10 @@ h1,h2{text-wrap:balance}
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m3 6 9 7 9-7"/></svg>
         h123577@163.com
       </a>
+      <button class="chip wechat" id="wechatBtn" type="button">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 3C5.9 3 3 5.4 3 8.3c0 1.7 1 3.2 2.4 4.2l-.7 2.3 2.6-1.3c.5.1 1 .2 1.5.2h.5a5 5 0 0 1-.1-1.1c0-3 2.8-5.4 6.3-5.4.3 0 .6 0 .9.1A5.4 5.4 0 0 0 9.5 3zM6.5 6.6a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8zm4.5 0a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8zM21 12.5c0-2.6-2.3-4.6-5.2-4.6s-5.2 2-5.2 4.6 2.3 4.6 5.2 4.6c.5 0 1.1-.1 1.6-.2l2.2 1.1-.6-2c1.6-.9 2-1.9 2-3.5zm-6.3-2.2a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5zm3.8 0a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5z"/></svg>
+        微信 · 月亮
+      </button>
       <span class="chip" style="background:rgba(29,29,31,.04);border:1px solid var(--stroke)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
         23 岁 · 北京
@@ -337,8 +357,8 @@ h1,h2{text-wrap:balance}
 
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
-    <span>Python<i>·</i>Django<i>·</i>Celery<i>·</i>Redis<i>·</i>MySQL<i>·</i>PostgreSQL<i>·</i>Docker<i>·</i>RAG<i>·</i>SSE<i>·</i>任务队列<i>·</i>异步架构<i>·</i>MLOps<i>·</i>MinIO<i>·</i>ClickHouse<i>·</i></span>
-    <span>Python<i>·</i>Django<i>·</i>Celery<i>·</i>Redis<i>·</i>MySQL<i>·</i>PostgreSQL<i>·</i>Docker<i>·</i>RAG<i>·</i>SSE<i>·</i>任务队列<i>·</i>异步架构<i>·</i>MLOps<i>·</i>MinIO<i>·</i>ClickHouse<i>·</i></span>
+    <span>Python<i>·</i>Django<i>·</i>Celery<i>·</i>Redis<i>·</i>MySQL<i>·</i>SSE<i>·</i>FastAPI<i>·</i>RAG<i>·</i>Docker<i>·</i>Git<i>·</i>GitLab<i>·</i>飞书<i>·</i>任务状态机<i>·</i>异步架构<i>·</i></span>
+    <span>Python<i>·</i>Django<i>·</i>Celery<i>·</i>Redis<i>·</i>MySQL<i>·</i>SSE<i>·</i>FastAPI<i>·</i>RAG<i>·</i>Docker<i>·</i>Git<i>·</i>GitLab<i>·</i>飞书<i>·</i>任务状态机<i>·</i>异步架构<i>·</i></span>
   </div>
 </div>
 
@@ -347,7 +367,7 @@ h1,h2{text-wrap:balance}
     <div class="sec-head" data-reveal>
       <div class="sec-kicker">CORE STRENGTHS</div>
       <h2 class="sec-title">核心优势</h2>
-      <p class="sec-sub">六年计算机领域积累，两年深度投入 AI 应用研发：从任务架构到产品闭环，独立交付过多个上线产品。</p>
+      <p class="sec-sub">独立交付 3 个上线 AI 产品，覆盖任务架构、可靠性设计与智能体编排。</p>
     </div>
     <div class="strength-grid">
       <div class="glass strength hoverable" data-reveal style="transition-delay:.05s">
@@ -355,7 +375,7 @@ h1,h2{text-wrap:balance}
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 7.5 12 12l9-4.5L12 3z"/><path d="m3 12 9 4.5 9-4.5"/><path d="m3 16.5 9 4.5 9-4.5"/></svg>
         </div>
         <h3>AI 平台工程化</h3>
-        <p>主导 AI-PPT 任务队列架构改造，实现高可用异步任务调度。围绕任务生命周期构建状态机、可靠性机制与质量保障，把线上成功率从 60% 带到 95% 以上。</p>
+        <p>主导 AI-PPT 任务队列架构改造，实现高可用异步任务调度。围绕任务生命周期构建状态机、可靠性机制与质量保障，线上成功率稳定在 95% 以上。</p>
       </div>
       <div class="glass strength hoverable" data-reveal style="transition-delay:.14s">
         <div class="ico">
@@ -366,10 +386,10 @@ h1,h2{text-wrap:balance}
       </div>
       <div class="glass strength hoverable" data-reveal style="transition-delay:.23s">
         <div class="ico">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2m6-2v2M9 20v2m6-2v2M2 9h2m-2 6h2m16-6h2m-2 6h2"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/><path d="M13 17a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4z"/><path d="M9 11v1a3 3 0 0 0 3 3h1"/></svg>
         </div>
-        <h3>MLOps 方向</h3>
-        <p>对 ML 平台化、MLOps 有浓厚兴趣，持续关注模型服务、特征与训练平台等基础设施方向，愿意深入平台底层建设。</p>
+        <h3>智能体编排</h3>
+        <p>独立实现 v2/v3 智能体编排：对话式 PPT 生成、分批流式大纲、图片落版校验与 VLM 视觉复核降级等质量保障机制。</p>
       </div>
     </div>
   </div>
@@ -380,13 +400,12 @@ h1,h2{text-wrap:balance}
     <div class="sec-head" data-reveal>
       <div class="sec-kicker">WORK EXPERIENCE</div>
       <h2 class="sec-title">工作经历</h2>
-      <p class="sec-sub">三个独立交付的上线产品，覆盖任务架构、可靠性设计、智能体编排与知识库工作流。</p>
+      <p class="sec-sub">独立交付 3 个上线产品，覆盖任务架构、可靠性设计、智能体编排与知识库工作流。</p>
     </div>
 
     <div class="glass job-head" data-reveal>
       <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
         <span class="co">北京简圣科技有限公司</span>
-        <span class="badge">已离职</span>
       </div>
       <div class="role">AI 全栈开发工程师</div>
       <div class="period"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>2026.4 — 2026.10 · 北京</div>
@@ -399,9 +418,10 @@ h1,h2{text-wrap:balance}
           <a class="link" href="https://app.qinyanai.com" target="_blank" rel="noopener">app.qinyanai.com
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7m0 0H8m9 0v9"/></svg>
           </a>
+          <div class="proj-desc">对话式 AI 生成 PPT · 主力产品</div>
         </div>
         <ul>
-          <li>主导任务化架构改造：将 <b>SSE 直连</b>重构为 <b>Celery 独立队列 + 任务状态机（8 态流转）+ 页面级 checkpoint</b>，任务生命周期与浏览器连接解绑，线上成功率从 <b>60% 提升至 95%+</b></li>
+          <li>主导任务化架构改造：将 <b>SSE 直连</b>重构为 <b>Celery 独立队列 + 任务状态机（8 态流转）+ 页面级 checkpoint</b>，任务生命周期与浏览器连接解绑，线上成功率稳定在 <b>95%+</b></li>
           <li>设计可靠性机制：worker 原子认领（数据库行锁 + 执行令牌防重）、stale 任务自动回收、请求幂等防重、导出前状态门禁，解决<b>重复扣费</b>与<b>半成品导出</b>问题</li>
           <li>独立实现 v2/v3 智能体编排（前后端 <b>153 条提交</b>）：对话式 PPT 生成、分批流式大纲、页数增量合成、图片落版校验、VLM 视觉复核降级等质量保障机制</li>
         </ul>
@@ -416,6 +436,7 @@ h1,h2{text-wrap:balance}
           <a class="link" href="https://translate.qinyanai.com" target="_blank" rel="noopener">translate.qinyanai.com
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7m0 0H8m9 0v9"/></svg>
           </a>
+          <div class="proj-desc">学术文档 AI 翻译 · 保版式 PDF 导出</div>
         </div>
         <ul>
           <li>独立搭建翻译产品：保版式 <b>PDF 导出</b>、<b>512MB 大文档 OOM 防护</b>、双语对照、历史管理</li>
@@ -428,13 +449,14 @@ h1,h2{text-wrap:balance}
 
       <article class="glass proj hoverable" data-reveal>
         <div class="proj-head">
-          <div class="proj-name">中国移动湖南学术 Agent <span class="badge">独立搭建</span></div>
+          <div class="proj-name">中国移动湖南学术 Agent <span class="badge">负责搭建</span></div>
           <a class="link" href="https://www.lingxixiangban.com" target="_blank" rel="noopener">www.lingxixiangban.com
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7m0 0H8m9 0v9"/></svg>
           </a>
+          <div class="proj-desc">学术问答 Agent · 多源检索</div>
         </div>
         <ul>
-          <li>独立搭建学术 Agent：前后端及知识库工作流，聚合 <b>arXiv / PubMed / Google Scholar / 万方</b> 等多源学术库，最多 <b>5 库联合检索</b>、结果去重、用户权限校验</li>
+          <li>负责学术 Agent 的搭建与交付：前后端及知识库工作流，聚合 <b>arXiv / PubMed / Google Scholar / 万方</b> 等多源学术库，最多 <b>5 库联合检索</b>、结果去重、用户权限校验</li>
           <li>检索链路优化：多源 <b>7 天缓存</b>降本提速、<b>文献质量评分排序</b>、领域过滤与自动翻译</li>
           <li>异常与并发：会话排队、请求去重、额度分级错误处理，完善异常状态与用户隔离</li>
         </ul>
@@ -449,12 +471,8 @@ h1,h2{text-wrap:balance}
       <div class="metric-row">
         <div class="stat">
           <div class="label">线上成功率</div>
-          <div class="value">60% <b>→</b> 95%+</div>
-          <div class="gauge">
-            <div class="scale"><span>60</span><span>95+</span></div>
-            <div class="bar"><div class="fill" id="gaugeFill"></div></div>
-            <div class="note"><span class="from">改造前 60%</span><span>改造后 95%+</span></div>
-          </div>
+          <div class="value num">95<span style="font-size:.45em;color:var(--text3);margin-left:4px">%+</span></div>
+          <div style="margin-top:14px;color:var(--text3);font-size:13px">任务队列高可用改造后稳定水平</div>
         </div>
         <div class="stat">
           <div class="label">任务状态机</div>
@@ -481,17 +499,54 @@ h1,h2{text-wrap:balance}
     <div class="side-grid">
       <div class="glass side hoverable" data-reveal>
         <div class="side-title">沁言自传 · AI 自传创作平台</div>
-        <p>参与 5 智能体写作流水线（总编辑 / 访谈员 / 素材分析师 / 主笔 / 编辑）；大纲与章节正文采用 submit + callback 异步生成，HMAC 校验 + Redis SETNX 防重，产出 5 万字风格连贯书稿。</p>
+        <p>参与开发（前端方向）：协作 AI 自传创作平台的前端实现与联调。</p>
         <div class="proj-skills">
-          <span class="mini-tag">多 Agent 编排</span><span class="mini-tag">异步回调</span><span class="mini-tag">HMAC 防重</span><span class="mini-tag">SSE</span>
+          <span class="mini-tag">前端开发</span><span class="mini-tag">协作联调</span>
         </div>
       </div>
       <div class="glass side hoverable" data-reveal>
         <div class="side-title">金榜数学 · AI 辅导平台</div>
-        <p>参与高数知识库 RAG 检索、视频资源 VOD 导入流水线与 K8s 集群滚动部署；TypeScript + Python 混合 monorepo 协同开发。</p>
+        <p>参与开发（前端方向）：协作 AI 数学辅导平台的前端实现与联调。</p>
         <div class="proj-skills">
-          <span class="mini-tag">RAG 知识库</span><span class="mini-tag">VOD 导入</span><span class="mini-tag">K8s 部署</span><span class="mini-tag">Monorepo</span>
+          <span class="mini-tag">前端开发</span><span class="mini-tag">协作联调</span>
         </div>
+      </div>
+    </div>
+
+    <div class="side-head" data-reveal style="margin:34px 0 16px">
+      <div class="sec-kicker">PERSONAL PROJECTS</div>
+      <h3 style="font-size:20px;font-weight:600">个人开源项目</h3>
+    </div>
+    <div class="personal-grid">
+      <div class="glass side hoverable" data-reveal>
+        <div class="side-title">loop-engineering</div>
+        <p>Agent Workflow Architect：设计安全、可验证的 AI Agent 循环的工程化技能，Python 实现。</p>
+        <div class="proj-skills">
+          <span class="mini-tag">Agent 工作流</span><span class="mini-tag">Python</span>
+        </div>
+        <a class="link" href="https://github.com/H777000/loop-engineering" target="_blank" rel="noopener" style="margin-top:12px;display:inline-flex">github.com/H777000/loop-engineering
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7m0 0H8m9 0v9"/></svg>
+        </a>
+      </div>
+      <div class="glass side hoverable" data-reveal>
+        <div class="side-title">daily-work-report</div>
+        <p>基于本地 git 提交记录与模板自动生成日报的 Codex 技能，证据驱动。</p>
+        <div class="proj-skills">
+          <span class="mini-tag">Git 分析</span><span class="mini-tag">Codex</span>
+        </div>
+        <a class="link" href="https://github.com/H777000/daily-work-report" target="_blank" rel="noopener" style="margin-top:12px;display:inline-flex">github.com/H777000/daily-work-report
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7m0 0H8m9 0v9"/></svg>
+        </a>
+      </div>
+      <div class="glass side hoverable" data-reveal>
+        <div class="side-title">html-to-editable-pptx</div>
+        <p>将 HTML 幻灯片转换为可编辑 PowerPoint 文件，保持高视觉保真度，JavaScript 实现。</p>
+        <div class="proj-skills">
+          <span class="mini-tag">HTML → PPTX</span><span class="mini-tag">JavaScript</span>
+        </div>
+        <a class="link" href="https://github.com/H777000/html-to-editable-pptx" target="_blank" rel="noopener" style="margin-top:12px;display:inline-flex">github.com/H777000/html-to-editable-pptx
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7m0 0H8m9 0v9"/></svg>
+        </a>
       </div>
     </div>
   </div>
@@ -508,19 +563,19 @@ h1,h2{text-wrap:balance}
       <div class="skill-row lv-main">
         <div class="lv main"><span class="bar-dot"></span>主力</div>
         <div class="chips">
-          <span>Python</span><span>Django</span><span>Celery</span><span>MySQL</span><span>Redis</span><span>任务队列</span><span>异步架构</span>
+          <span>Python</span><span>Django</span><span>Celery</span><span>MySQL</span><span>Redis</span><span>SSE</span><span>任务状态机</span><span>异步架构</span>
         </div>
       </div>
       <div class="skill-row">
         <div class="lv fam"><span class="bar-dot"></span>熟悉</div>
         <div class="chips">
-          <span>PostgreSQL</span><span>FastAPI</span><span>Docker</span><span>Git</span><span>RESTful API</span><span>SSE</span>
+          <span>FastAPI</span><span>RAG</span><span>Docker</span><span>Git</span><span>RESTful API</span>
         </div>
       </div>
       <div class="skill-row">
-        <div class="lv know"><span class="bar-dot"></span>了解</div>
+        <div class="lv know"><span class="bar-dot"></span>工具与协作</div>
         <div class="chips">
-          <span>ML 平台化</span><span>MLOps</span><span>对象存储（MinIO/S3）</span><span>Hive / ClickHouse</span><span>Kubernetes</span>
+          <span>GitLab</span><span>飞书</span>
         </div>
       </div>
     </div>
@@ -624,25 +679,32 @@ h1,h2{text-wrap:balance}
   }, {threshold: .12, rootMargin: "0px 0px -6% 0px"});
   document.querySelectorAll("[data-reveal]").forEach(function(el){ io.observe(el); });
 
-  /* 成功率进度条 */
-  var gauge = document.getElementById("gaugeFill");
-  if(gauge){
-    var gio = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){
-          requestAnimationFrame(function(){ requestAnimationFrame(function(){
-            gauge.style.width = "95%";
-          }); });
-          gio.unobserve(e.target);
-        }
-      });
-    }, {threshold: .3});
-    gio.observe(document.getElementById("metrics"));
-  }
+  /* 微信二维码 */
+  var wm = document.getElementById("wechatModal");
+  var wb = document.getElementById("wechatBtn");
+  var wc = document.getElementById("wechatClose");
+  function openModal(){ if(wm) wm.classList.add("open"); }
+  function closeModal(){ if(wm) wm.classList.remove("open"); }
+  if(wb) wb.addEventListener("click", openModal);
+  if(wc) wc.addEventListener("click", closeModal);
+  if(wm) wm.addEventListener("click", function(e){ if(e.target === wm) closeModal(); });
+  document.addEventListener("keydown", function(e){ if(e.key === "Escape") closeModal(); });
 
   window.addEventListener("scroll", onScroll, {passive:true});
   onScroll();
 })();
 </script>
+
+<!-- 微信二维码弹窗 -->
+<div class="wechat-modal" id="wechatModal">
+  <div class="modal-card">
+    <button class="modal-close" id="wechatClose" type="button" aria-label="关闭">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <img src="wechat.png" alt="微信二维码">
+    <div class="modal-title">微信 · 月亮</div>
+    <div class="modal-sub">扫码添加好友，随时沟通</div>
+  </div>
+</div>
 </body>
 </html>
