@@ -649,6 +649,18 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
 </section>
 </main>
 
+<!-- 微信二维码弹窗 -->
+<div class="wechat-modal" id="wechatModal">
+  <div class="modal-card">
+    <button class="modal-close" id="wechatClose" type="button" aria-label="关闭">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <img src="wechat.png" alt="微信二维码">
+    <div class="modal-title">微信 · 月亮</div>
+    <div class="modal-sub">扫码添加好友，随时沟通</div>
+  </div>
+</div>
+
 <script>
 (function(){
   "use strict";
@@ -694,17 +706,5 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
   onScroll();
 })();
 </script>
-
-<!-- 微信二维码弹窗 -->
-<div class="wechat-modal" id="wechatModal">
-  <div class="modal-card">
-    <button class="modal-close" id="wechatClose" type="button" aria-label="关闭">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M18 6 6 18M6 6l12 12"/></svg>
-    </button>
-    <img src="wechat.png" alt="微信二维码">
-    <div class="modal-title">微信 · 月亮</div>
-    <div class="modal-sub">扫码添加好友，随时沟通</div>
-  </div>
-</div>
 </body>
 </html>
