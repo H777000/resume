@@ -709,11 +709,11 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
   var ar = hw ? hw.querySelector(".avatar-reveal") : null;
   var ring = hw ? hw.querySelector(".spot-ring") : null;
   if(hw && ar && ring){
-    function spotR(){ return Math.max(28, Math.min(54, Math.round(window.innerWidth * 0.055))); }
+    function spotR(){ return Math.max(42, Math.min(78, Math.round(window.innerWidth * 0.075))); }
     function moveSpot(e){
-      var r = hw.getBoundingClientRect();
-      var x = e.clientX - r.left;
-      var y = e.clientY - r.top;
+      var rr = ar.getBoundingClientRect();
+      var x = e.clientX - rr.left;
+      var y = e.clientY - rr.top;
       var rad = spotR();
       ar.style.clipPath = "circle(" + rad + "px at " + x + "px " + y + "px)";
       ring.style.width = (rad * 2) + "px";
