@@ -107,15 +107,15 @@ h1,h2{text-wrap:balance}
 .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:120px 0 76px;position:relative;overflow:hidden}
 .hero-watermark{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);z-index:0;pointer-events:none;text-align:center;font-size:clamp(120px,26vw,340px);font-weight:900;line-height:.82;letter-spacing:-.06em;color:rgba(29,29,31,.035);-webkit-user-select:none;user-select:none;white-space:nowrap}
 .hero-grid{display:flex;flex-direction:column;align-items:center;text-align:center;gap:32px;position:relative;z-index:2}
-/* 头像：默认隐藏，悬停名字区域时在字后浮现 */
+/* 头像探照灯：图片藏在字后，鼠标移到哪只露出光标周围一小圈 */
 .hero-name-wrap{position:relative;display:inline-block;cursor:default}
 .hero-name-wrap .hero-name{position:relative;z-index:2}
-.avatar-reveal{position:absolute;left:50%;top:50%;width:clamp(190px,20vw,250px);aspect-ratio:1/1;transform:translate(-50%,-50%) scale(.86);opacity:0;visibility:hidden;transition:opacity .45s var(--ease),transform .45s var(--ease);pointer-events:none;z-index:3;border-radius:50%}
-.hero-name-wrap:hover .avatar-reveal,.hero-name-wrap.tip-open .avatar-reveal{opacity:1;visibility:visible;transform:translate(-50%,-50%) scale(1)}
-.avatar-reveal img{width:100%;height:100%;object-fit:cover;border-radius:50%;position:relative;z-index:2;box-shadow:0 24px 54px rgba(29,29,31,.22),0 6px 16px rgba(29,29,31,.1)}
-.avatar-reveal::after{content:"";position:absolute;inset:0;border-radius:50%;z-index:3;box-shadow:inset 0 0 0 1px rgba(255,255,255,.6)}
-.avatar-reveal .halo{position:absolute;left:50%;top:50%;width:118%;height:118%;transform:translate(-50%,-50%);border-radius:50%;z-index:1;background:radial-gradient(circle,rgba(0,102,204,.2),transparent 62%);filter:blur(10px);animation:breathe 5.5s ease-in-out infinite}
-@keyframes breathe{0%,100%{opacity:.5;transform:translate(-50%,-50%) scale(1)}50%{opacity:.85;transform:translate(-50%,-50%) scale(1.06)}}
+.avatar-reveal{position:absolute;left:50%;top:50%;width:clamp(190px,20vw,250px);aspect-ratio:1/1;transform:translate(-50%,-50%);border-radius:50%;z-index:3;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s ease;overflow:hidden}
+.hero-name-wrap.spot-on .avatar-reveal,.hero-name-wrap.tip-open .avatar-reveal{opacity:1;visibility:visible}
+.hero-name-wrap.tip-open .avatar-reveal{clip-path:circle(200% at 50% 50%)}
+.avatar-reveal img{width:100%;height:100%;object-fit:cover;display:block}
+.spot-ring{position:absolute;left:0;top:0;width:0;height:0;border:1.5px solid rgba(255,255,255,.9);border-radius:50%;box-shadow:0 0 0 1px rgba(29,29,31,.08),0 6px 18px rgba(29,29,31,.2);z-index:4;pointer-events:none;opacity:0;visibility:hidden;transition:opacity .25s ease}
+.hero-name-wrap.spot-on .spot-ring{opacity:1;visibility:visible}
 .hero-name{font-size:clamp(52px,11vw,118px);font-weight:800;line-height:1.02;letter-spacing:-.045em;background:linear-gradient(180deg,#111114 22%,rgba(29,29,31,.6) 78%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero-role{font-size:clamp(19px,2.8vw,28px);color:var(--text2);font-weight:300;margin-top:8px}
 .hero-role b{color:var(--text);font-weight:600}
@@ -269,7 +269,7 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   [data-reveal]{opacity:1;transform:none;transition:none}
-  .blob,.avatar-reveal .halo,.scroll-hint .mouse::after,.marquee-track{animation:none!important}
+  .blob,.scroll-hint .mouse::after,.marquee-track{animation:none!important}
   .hero-grid .avatar,.hero-grid [data-in]{animation:none}
   .gauge .fill{transition:none}
 }
@@ -324,7 +324,7 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
     <div class="hero-name-wrap" id="avatarTrigger" data-in="name">
       <div class="avatar-reveal">
         <img src="headshot.png" alt="黄书磊头像">
-        <div class="halo"></div>
+        <div class="spot-ring"></div>
       </div>
       <h1 class="hero-name">黄书磊</h1>
     </div>
@@ -704,9 +704,30 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
   if(wm) wm.addEventListener("click", function(e){ if(e.target === wm) closeModal(); });
   document.addEventListener("keydown", function(e){ if(e.key === "Escape") closeModal(); });
 
-  /* 头像悬停：点击名字区域等效触发（触摸设备） */
+  /* 头像探照灯：鼠标移到哪，只露出光标周围一小圈的头像画面 */
   var hw = document.getElementById("avatarTrigger");
-  if(hw) hw.addEventListener("click", function(){ hw.classList.toggle("tip-open"); });
+  var ar = hw ? hw.querySelector(".avatar-reveal") : null;
+  var ring = hw ? hw.querySelector(".spot-ring") : null;
+  if(hw && ar && ring){
+    function spotR(){ return Math.max(28, Math.min(54, Math.round(window.innerWidth * 0.055))); }
+    function moveSpot(e){
+      var r = hw.getBoundingClientRect();
+      var x = e.clientX - r.left;
+      var y = e.clientY - r.top;
+      var rad = spotR();
+      ar.style.clipPath = "circle(" + rad + "px at " + x + "px " + y + "px)";
+      ring.style.width = (rad * 2) + "px";
+      ring.style.height = (rad * 2) + "px";
+      ring.style.transform = "translate(" + (x - rad) + "px," + (y - rad) + "px)";
+    }
+    hw.addEventListener("mouseenter", function(e){ hw.classList.add("spot-on"); moveSpot(e); });
+    hw.addEventListener("mousemove", moveSpot);
+    hw.addEventListener("mouseleave", function(){
+      hw.classList.remove("spot-on");
+      ar.style.clipPath = "circle(0 at 50% 50%)";
+    });
+    hw.addEventListener("click", function(){ hw.classList.toggle("tip-open"); });
+  }
 
   window.addEventListener("scroll", onScroll, {passive:true});
   onScroll();
