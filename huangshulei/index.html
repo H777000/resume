@@ -107,18 +107,15 @@ h1,h2{text-wrap:balance}
 .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:120px 0 76px;position:relative;overflow:hidden}
 .hero-watermark{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);z-index:0;pointer-events:none;text-align:center;font-size:clamp(120px,26vw,340px);font-weight:900;line-height:.82;letter-spacing:-.06em;color:rgba(29,29,31,.035);-webkit-user-select:none;user-select:none;white-space:nowrap}
 .hero-grid{display:flex;flex-direction:column;align-items:center;text-align:center;gap:32px;position:relative;z-index:2}
-.avatar{position:relative;width:158px;height:158px;border-radius:50%;flex:none}
-.avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;position:relative;z-index:2;box-shadow:0 18px 44px rgba(29,29,31,.14),0 4px 12px rgba(29,29,31,.08);transition:transform .45s var(--ease)}
-.avatar:hover img{transform:scale(1.05)}
-.avatar::after{content:"";position:absolute;inset:0;border-radius:50%;z-index:3;box-shadow:inset 0 0 0 1px rgba(255,255,255,.55)}
-.avatar .glow{position:absolute;inset:-20px;border-radius:50%;z-index:0;background:radial-gradient(circle,rgba(0,102,204,.13),transparent 60%);filter:blur(24px);animation:breathe 6s ease-in-out infinite}
-@keyframes breathe{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:.85;transform:scale(1.05)}}
-/* 头像悬停简介卡 */
-.avatar-tip{position:absolute;left:50%;top:-64px;transform:translateX(-50%) translateY(8px);width:max-content;max-width:300px;background:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.7);-webkit-backdrop-filter:blur(20px) saturate(1.6);backdrop-filter:blur(20px) saturate(1.6);border-radius:16px;padding:13px 20px;box-shadow:0 18px 46px rgba(29,29,31,.18),inset 0 1px 0 rgba(255,255,255,.9);opacity:0;visibility:hidden;transition:opacity .35s var(--ease),transform .35s var(--ease);z-index:6;text-align:center;pointer-events:none}
-.avatar:hover .avatar-tip,.avatar.tip-open .avatar-tip{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
-.avatar-tip::before{content:"";position:absolute;bottom:-7px;left:50%;transform:translateX(-50%) rotate(45deg);width:12px;height:12px;background:rgba(255,255,255,.85);border-right:1px solid rgba(255,255,255,.7);border-bottom:1px solid rgba(255,255,255,.7);border-radius:2px}
-.avatar-tip .tip-title{font-size:14px;font-weight:600;color:var(--text);white-space:nowrap}
-.avatar-tip .tip-sub{font-size:12.5px;color:var(--text2);margin-top:4px;white-space:nowrap}
+/* 头像：默认隐藏，悬停名字区域时在字后浮现 */
+.hero-name-wrap{position:relative;display:inline-block;cursor:default}
+.hero-name-wrap .hero-name{position:relative;z-index:2}
+.avatar-reveal{position:absolute;left:50%;top:50%;width:clamp(190px,20vw,250px);aspect-ratio:1/1;transform:translate(-50%,-50%) scale(.86);opacity:0;visibility:hidden;transition:opacity .45s var(--ease),transform .45s var(--ease);pointer-events:none;z-index:3;border-radius:50%}
+.hero-name-wrap:hover .avatar-reveal,.hero-name-wrap.tip-open .avatar-reveal{opacity:1;visibility:visible;transform:translate(-50%,-50%) scale(1)}
+.avatar-reveal img{width:100%;height:100%;object-fit:cover;border-radius:50%;position:relative;z-index:2;box-shadow:0 24px 54px rgba(29,29,31,.22),0 6px 16px rgba(29,29,31,.1)}
+.avatar-reveal::after{content:"";position:absolute;inset:0;border-radius:50%;z-index:3;box-shadow:inset 0 0 0 1px rgba(255,255,255,.6)}
+.avatar-reveal .halo{position:absolute;left:50%;top:50%;width:118%;height:118%;transform:translate(-50%,-50%);border-radius:50%;z-index:1;background:radial-gradient(circle,rgba(0,102,204,.2),transparent 62%);filter:blur(10px);animation:breathe 5.5s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.5;transform:translate(-50%,-50%) scale(1)}50%{opacity:.85;transform:translate(-50%,-50%) scale(1.06)}}
 .hero-name{font-size:clamp(52px,11vw,118px);font-weight:800;line-height:1.02;letter-spacing:-.045em;background:linear-gradient(180deg,#111114 22%,rgba(29,29,31,.6) 78%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero-role{font-size:clamp(19px,2.8vw,28px);color:var(--text2);font-weight:300;margin-top:8px}
 .hero-role b{color:var(--text);font-weight:600}
@@ -272,7 +269,7 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   [data-reveal]{opacity:1;transform:none;transition:none}
-  .blob,.avatar .glow,.scroll-hint .mouse::after,.marquee-track{animation:none!important}
+  .blob,.avatar-reveal .halo,.scroll-hint .mouse::after,.marquee-track{animation:none!important}
   .hero-grid .avatar,.hero-grid [data-in]{animation:none}
   .gauge .fill{transition:none}
 }
@@ -324,18 +321,14 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
 <header class="hero">
 <div class="hero-watermark" aria-hidden="true">HUANG&nbsp;SHULEI</div>
   <div class="wrap hero-grid">
-    <div class="avatar" data-reveal>
-      <div class="glow"></div>
-      <div class="avatar-tip" role="tooltip">
-        <div class="tip-title">黄书磊 · AI 全栈开发工程师</div>
-        <div class="tip-sub">独立交付 3 个上线 AI 产品 · 北京</div>
+    <div class="hero-name-wrap" id="avatarTrigger" data-in="name">
+      <div class="avatar-reveal">
+        <img src="headshot.png" alt="黄书磊头像">
+        <div class="halo"></div>
       </div>
-      <img src="headshot.png" alt="黄书磊头像" width="170" height="227">
-    </div>
-    <div data-in="name">
       <h1 class="hero-name">黄书磊</h1>
-      <p class="hero-role">AI 全栈开发工程师 · <b>平台工程化</b></p>
     </div>
+    <p class="hero-role">AI 全栈开发工程师 · <b>平台工程化</b></p>
     <div class="hero-tags" data-in="tags">
       <span class="tag">Python</span><span class="tag">大模型工程化</span><span class="tag">RAG</span><span class="tag">异步架构</span><span class="tag">智能体编排</span>
     </div>
@@ -711,9 +704,9 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
   if(wm) wm.addEventListener("click", function(e){ if(e.target === wm) closeModal(); });
   document.addEventListener("keydown", function(e){ if(e.key === "Escape") closeModal(); });
 
-  /* 头像悬停卡片：点击等效触发（触摸设备） */
-  var av = document.querySelector(".avatar");
-  if(av) av.addEventListener("click", function(){ av.classList.toggle("tip-open"); });
+  /* 头像悬停：点击名字区域等效触发（触摸设备） */
+  var hw = document.getElementById("avatarTrigger");
+  if(hw) hw.addEventListener("click", function(){ hw.classList.toggle("tip-open"); });
 
   window.addEventListener("scroll", onScroll, {passive:true});
   onScroll();
