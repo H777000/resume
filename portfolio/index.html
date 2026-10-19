@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>黄书磊 · 作品集</title>
+<meta name="description" content="黄书磊的作品集 — Agent-PPT 与沁言学术翻译两个上线 AI 产品的完整复盘。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232997ff'/%3E%3Cstop offset='1' stop-color='%235e5ce6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%2307080f'/%3E%3Crect x='1' y='1' width='62' height='62' rx='13' fill='none' stroke='url(%23g)' stroke-width='2'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='30' font-weight='700' fill='url(%23g)' text-anchor='middle'%3EW%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+SC:wght@100;200;300;400;500;600;700;900&display=swap">
+<style>
+:root{
+  --bg0:#f5f5f7;
+  --text:#1d1d1f;
+  --text2:rgba(29,29,31,.62);
+  --text3:rgba(29,29,31,.4);
+  --glass:rgba(255,255,255,.5);
+  --glass2:rgba(255,255,255,.8);
+  --stroke:rgba(29,29,31,.08);
+  --stroke2:rgba(29,29,31,.18);
+  --accent:#0066cc;
+  --violet:#5e5ce6;
+  --cyan:#00b3ff;
+  --green:#0a8f5a;
+  --r-lg:30px; --r-md:20px; --r-sm:14px;
+  --maxw:1160px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:
+    radial-gradient(1200px 700px at 12% -10%, rgba(0,102,204,.09), transparent 60%),
+    radial-gradient(1100px 650px at 95% 5%, rgba(94,92,230,.08), transparent 60%),
+    radial-gradient(1000px 700px at 50% 115%, rgba(0,179,255,.06), transparent 60%),
+    linear-gradient(180deg,#fbfbfd 0%,#f5f5f7 42%,#eef0f3 100%);
+  color:var(--text);
+  font-family:"Noto Sans SC",-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif;
+  font-weight:300;
+  line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+::selection{background:rgba(0,102,204,.16)}
+::-webkit-scrollbar{width:9px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(29,29,31,.16);border-radius:99px;border:2px solid transparent;background-clip:content-box}
+::-webkit-scrollbar-thumb:hover{background:rgba(29,29,31,.3);background-clip:content-box}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+h1,h2,h3{font-weight:600;letter-spacing:-.02em}
+.num{font-variant-numeric:tabular-nums}
+h1,h2{text-wrap:balance}
+/* ===== 光斑背景 ===== */
+.aurora{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(100px);will-change:transform}
+.blob.b1{width:58vw;height:58vw;left:-16vw;top:-20vh;background:radial-gradient(circle,rgba(0,102,204,.2),transparent 62%);animation:drift1 30s ease-in-out infinite alternate}
+.blob.b2{width:50vw;height:50vw;right:-18vw;top:6vh;background:radial-gradient(circle,rgba(94,92,230,.18),transparent 62%);animation:drift2 36s ease-in-out infinite alternate}
+.blob.b3{width:46vw;height:46vw;left:16vw;bottom:-26vh;background:radial-gradient(circle,rgba(0,179,255,.15),transparent 62%);animation:drift1 44s ease-in-out infinite alternate-reverse}
+.blob.b4{width:32vw;height:32vw;right:8vw;bottom:4vh;background:radial-gradient(circle,rgba(22,173,106,.08),transparent 62%);animation:drift2 50s ease-in-out infinite alternate}
+@keyframes drift1{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(6vw,5vh,0) scale(1.14)}}
+@keyframes drift2{from{transform:translate3d(0,0,0) scale(1.06)}to{transform:translate3d(-5vw,-4vh,0) scale(.94)}}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.04;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")}
+/* ===== 玻璃卡片 ===== */
+.glass{position:relative;background:var(--glass);-webkit-backdrop-filter:blur(26px) saturate(1.6);backdrop-filter:blur(26px) saturate(1.6);border:1px solid var(--stroke);border-radius:var(--r-lg);
+  box-shadow:0 2px 4px rgba(29,29,31,.03),0 28px 64px rgba(29,29,31,.07),inset 0 1px 0 rgba(255,255,255,.85);
+  transition:transform .55s var(--ease),border-color .55s var(--ease),background .55s var(--ease),box-shadow .55s var(--ease)}
+.glass::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(160deg,rgba(255,255,255,.9),rgba(255,255,255,.4) 26%,rgba(255,255,255,.08) 46%,transparent 62%)}
+.glass::after{content:"";position:absolute;inset:1px;border-radius:calc(var(--r-lg) - 1px);pointer-events:none;border:1px solid rgba(255,255,255,.45)}
+.glass.hoverable:hover{transform:translateY(-6px);border-color:var(--stroke2);background:var(--glass2);box-shadow:0 4px 12px rgba(29,29,31,.05),0 40px 80px rgba(29,29,31,.1),inset 0 1px 0 rgba(255,255,255,.95)}
+@supports not (backdrop-filter:blur(1px)){.glass{background:rgba(255,255,255,.9)}}
+/* ===== 顶部导航 ===== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .4s,border-color .4s,backdrop-filter .4s,box-shadow .4s}
+.nav-inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:16px;padding:20px 24px;transition:padding .4s}
+.nav.scrolled{background:rgba(250,250,252,.72);-webkit-backdrop-filter:blur(22px) saturate(1.6);backdrop-filter:blur(22px) saturate(1.6);border-bottom:1px solid rgba(29,29,31,.06);box-shadow:0 1px 20px rgba(29,29,31,.04)}
+.nav.scrolled .nav-inner{padding:12px 24px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:600;font-size:15px}
+.brand .dot{width:27px;height:27px;border-radius:9px;background:linear-gradient(135deg,var(--accent),var(--violet));box-shadow:0 0 0 1px rgba(0,102,204,.25),0 4px 14px rgba(0,102,204,.3);display:grid;place-items:center;font-size:13px;font-weight:700;color:#fff}
+.nav-links{display:none;margin-left:auto;gap:28px;font-size:14px;color:var(--text2)}
+.nav-links a{position:relative;transition:color .3s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:1.5px;background:linear-gradient(90deg,var(--accent),var(--cyan));transition:width .4s var(--ease)}
+.nav-links a:hover{color:var(--text)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{margin-left:auto;font-size:13px;font-weight:600;color:#fff;background:linear-gradient(135deg,var(--accent),#00499e);padding:9px 20px;border-radius:999px;transition:transform .35s var(--ease),box-shadow .35s var(--ease);white-space:nowrap;box-shadow:0 6px 18px rgba(0,102,204,.28)}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,102,204,.4)}
+.nav-links + .nav-cta{margin-left:28px}
+@media(min-width:860px){.nav-links{display:flex}}
+/* ===== 滚动进度 ===== */
+.progress{position:fixed;top:0;left:0;height:2.5px;width:0;z-index:60;background:linear-gradient(90deg,var(--accent),var(--cyan),var(--violet));box-shadow:0 0 12px rgba(0,102,204,.45)}
+/* ===== 内容容器 ===== */
+.wrap{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.section{padding:110px 0 44px}
+.sec-head{margin-bottom:46px;max-width:780px}
+.sec-kicker{font-size:12.5px;letter-spacing:.26em;color:var(--accent);font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.sec-kicker::before{content:"";width:34px;height:1px;background:linear-gradient(90deg,var(--accent),transparent)}
+.sec-title{font-size:clamp(32px,5vw,50px);font-weight:700;line-height:1.14;letter-spacing:-.03em}
+.sec-sub{color:var(--text2);margin-top:16px;font-size:clamp(15px,1.7vw,17px);max-width:660px;line-height:1.8}
+/* ===== Hero ===== */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:120px 0 76px;position:relative;overflow:hidden}
+.hero-watermark{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);z-index:0;pointer-events:none;text-align:center;font-size:clamp(100px,22vw,300px);font-weight:900;line-height:.82;letter-spacing:-.06em;color:rgba(29,29,31,.035);-webkit-user-select:none;user-select:none;white-space:nowrap}
+.hero-grid{display:flex;flex-direction:column;align-items:center;text-align:center;gap:30px;position:relative;z-index:2}
+.hero-badge{font-size:12.5px;letter-spacing:.3em;color:var(--accent);font-weight:600;border:1px solid rgba(0,102,204,.3);background:rgba(0,102,204,.06);padding:8px 20px;border-radius:999px;box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}
+.hero-title{font-size:clamp(52px,11vw,118px);font-weight:800;line-height:1.02;letter-spacing:-.045em;background:linear-gradient(180deg,#111114 22%,rgba(29,29,31,.6) 78%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-role{font-size:clamp(17px,2.4vw,24px);color:var(--text2);font-weight:300}
+.hero-role b{color:var(--text);font-weight:600}
+.hero-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:4px}
+.tag{font-size:13px;color:var(--text2);border:1px solid var(--stroke);background:var(--glass);padding:7px 16px;border-radius:999px;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 1px 4px rgba(29,29,31,.05),inset 0 1px 0 rgba(255,255,255,.7)}
+/* 首屏入场 */
+@keyframes fadeUp{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
+.hero-grid [data-in]{animation:fadeUp 1.1s var(--ease) both}
+.hero-grid [data-in="b"]{animation-delay:.1s}
+.hero-grid [data-in="t"]{animation-delay:.3s}
+.hero-grid [data-in="r"]{animation-delay:.48s}
+.hero-grid [data-in="s"]{animation-delay:.65s}
+.scroll-hint{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--text3);font-size:12px;letter-spacing:.2em}
+.scroll-hint .mouse{width:23px;height:35px;border:1.5px solid var(--text3);border-radius:12px;position:relative}
+.scroll-hint .mouse::after{content:"";position:absolute;left:50%;top:6px;width:3px;height:7px;margin-left:-1.5px;border-radius:3px;background:var(--accent);animation:wheel 1.9s var(--ease) infinite}
+@keyframes wheel{0%{opacity:0;transform:translateY(0)}35%{opacity:1}100%{opacity:0;transform:translateY(12px)}}
+/* ===== 项目总览 ===== */
+.overview-grid{display:grid;grid-template-columns:1fr;gap:20px}
+.ov-card{padding:36px 34px;display:flex;flex-direction:column;gap:18px;position:relative;overflow:hidden}
+.ov-num{position:absolute;right:28px;top:20px;font-size:clamp(64px,8vw,96px);font-weight:900;line-height:1;color:rgba(29,29,31,.045);letter-spacing:-.04em;-webkit-user-select:none;user-select:none}
+.ov-top{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.ov-ico{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;flex:none;background:linear-gradient(135deg,rgba(0,102,204,.12),rgba(94,92,230,.1));border:1px solid rgba(0,102,204,.22);box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}
+.ov-ico svg{width:22px;height:22px;stroke:var(--accent)}
+.ov-name{font-size:clamp(22px,3vw,28px);font-weight:700;letter-spacing:-.02em}
+.badge{font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--accent);border:1px solid rgba(0,102,204,.35);background:rgba(0,102,204,.07);padding:4px 11px;border-radius:999px;white-space:nowrap}
+.ov-desc{font-size:15px;color:var(--text2);line-height:1.85;max-width:640px}
+.ov-tags{display:flex;flex-wrap:wrap;gap:8px}
+.mini-tag{font-size:12px;color:var(--text2);background:rgba(29,29,31,.04);border:1px solid rgba(29,29,31,.1);padding:4px 11px;border-radius:999px;box-shadow:inset 0 1px 0 rgba(255,255,255,.5)}
+.ov-go{margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--accent);transition:gap .3s var(--ease)}
+.ov-go svg{width:15px;height:15px;transition:transform .3s var(--ease)}
+.ov-card:hover .ov-go svg{transform:translateX(4px)}
+.ov-card:hover .ov-go{gap:12px}
+/* ===== 项目详情 ===== */
+.proj-hero{display:flex;flex-direction:column;gap:26px;padding:44px 36px;margin-bottom:26px}
+.proj-head{display:flex;flex-direction:column;gap:14px}
+.proj-title-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.proj-title{font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-.03em;line-height:1.12}
+.proj-url{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;color:var(--text2);transition:color .3s}
+.proj-url:hover{color:var(--accent)}
+.proj-url svg{width:13px;height:13px;transition:transform .3s}
+.proj-url:hover svg{transform:translate(2px,-2px)}
+.proj-one{font-size:clamp(16px,2.2vw,19px);color:var(--text);font-weight:500;line-height:1.7;max-width:720px}
+.proj-lead{font-size:14.5px;color:var(--text2);line-height:1.85;max-width:680px}
+.btn-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:4px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-size:14.5px;font-weight:600;padding:13px 28px;border-radius:999px;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.btn svg{width:15px;height:15px}
+.btn.primary{background:linear-gradient(135deg,var(--accent),#00499e);color:#fff;box-shadow:0 10px 32px rgba(0,102,204,.3)}
+.btn.primary:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,102,204,.42)}
+.btn.ghost{border:1px solid var(--stroke2);background:var(--glass);color:var(--text);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}
+.btn.ghost:hover{transform:translateY(-3px);border-color:rgba(29,29,31,.32);background:var(--glass2)}
+/* 子标题 */
+.sub-head{display:flex;align-items:center;gap:10px;font-size:12.5px;letter-spacing:.22em;color:var(--text3);font-weight:600;margin:34px 0 18px}
+.sub-head::before{content:"";width:24px;height:1px;background:var(--accent)}
+/* 改造对比 */
+.before-after{display:grid;grid-template-columns:1fr;gap:16px}
+.ba-card{padding:24px 26px;border:1px solid var(--stroke);border-radius:var(--r-md);background:rgba(255,255,255,.62);box-shadow:inset 0 1px 0 rgba(255,255,255,.85),0 10px 30px rgba(29,29,31,.04)}
+.ba-card.after{border-color:rgba(0,102,204,.28);background:rgba(0,102,204,.035)}
+.ba-label{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;letter-spacing:.14em;padding:5px 13px;border-radius:999px;margin-bottom:14px}
+.ba-card.before .ba-label{color:var(--text3);background:rgba(29,29,31,.05);border:1px solid var(--stroke)}
+.ba-card.after .ba-label{color:var(--accent);background:rgba(0,102,204,.08);border:1px solid rgba(0,102,204,.28)}
+.ba-title{font-size:17px;font-weight:700;margin-bottom:9px}
+.ba p{font-size:14px;color:var(--text2);line-height:1.85}
+/* 状态机流程 */
+.flow{display:flex;flex-wrap:wrap;gap:0;justify-content:center;margin-top:6px}
+.flow-step{display:flex;align-items:center;gap:0;position:relative}
+.flow-node{display:flex;flex-direction:column;align-items:center;gap:9px;min-width:84px;padding:0 8px}
+.flow-dot{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:12.5px;font-weight:700;color:var(--accent);background:rgba(0,102,204,.09);border:1.5px solid rgba(0,102,204,.32);box-shadow:0 0 0 5px rgba(0,102,204,.06),inset 0 1px 0 rgba(255,255,255,.7);transition:background .4s,color .4s,transform .4s var(--ease)}
+.flow-step:hover .flow-dot{background:linear-gradient(135deg,var(--accent),var(--cyan));color:#fff;transform:scale(1.08)}
+.flow-label{font-size:12px;color:var(--text2);white-space:nowrap;text-align:center}
+.flow-arrow{width:26px;height:2px;background:linear-gradient(90deg,rgba(0,102,204,.5),rgba(0,179,255,.35));border-radius:2px;position:relative;flex:none;margin:0 2px}
+.flow-arrow::after{content:"";position:absolute;right:0;top:-3.5px;border:4px solid transparent;border-left-color:rgba(0,102,204,.55)}
+/* 可靠性机制 */
+.reli-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.reli{padding:26px 26px;display:flex;flex-direction:column;gap:10px}
+.reli .r-ico{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;margin-bottom:6px;background:linear-gradient(135deg,rgba(0,102,204,.1),rgba(94,92,230,.09));border:1px solid rgba(0,102,204,.2);box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}
+.reli .r-ico svg{width:20px;height:20px;stroke:var(--accent)}
+.reli h4{font-size:16px;font-weight:700;letter-spacing:-.01em}
+.reli p{font-size:13.5px;color:var(--text2);line-height:1.8}
+/* 指标带 */
+.metrics{margin-top:28px;padding:38px 32px}
+.metrics-title{font-size:12.5px;letter-spacing:.22em;color:var(--text3);font-weight:600;margin-bottom:28px;display:flex;align-items:center;gap:10px}
+.metrics-title::before{content:"";width:26px;height:1px;background:var(--accent)}
+.metric-row{display:grid;grid-template-columns:1fr;gap:26px}
+.stat .label{font-size:13px;color:var(--text3);margin-bottom:10px;letter-spacing:.04em}
+.stat .value{font-size:clamp(40px,6vw,62px);font-weight:200;line-height:1.05;letter-spacing:-.03em}
+.stat .value b{font-weight:300;color:var(--accent)}
+.stat .sub{color:var(--text3);font-size:13px;margin-top:12px;line-height:1.6}
+/* 功能亮点 */
+.feat-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.feat{padding:26px 28px;display:flex;flex-direction:column;gap:9px}
+.feat .f-ico{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;margin-bottom:6px;background:linear-gradient(135deg,rgba(0,102,204,.1),rgba(94,92,230,.09));border:1px solid rgba(0,102,204,.2);box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}
+.feat .f-ico svg{width:20px;height:20px;stroke:var(--accent)}
+.feat h4{font-size:16px;font-weight:700;letter-spacing:-.01em}
+.feat p{font-size:13.5px;color:var(--text2);line-height:1.8}
+/* 技能总结 */
+.skill-band{margin-top:30px;padding:38px 34px;display:flex;flex-direction:column;gap:20px}
+.skill-band .line{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline}
+.skill-band .lv{font-size:13px;font-weight:600;color:var(--text);min-width:52px;letter-spacing:.06em}
+.skill-band .lv::after{content:""}
+.chips{display:flex;flex-wrap:wrap;gap:9px}
+.chips span{font-size:13.5px;color:var(--text2);padding:8px 16px;border-radius:999px;background:rgba(29,29,31,.04);border:1px solid rgba(29,29,31,.1);transition:border-color .3s,color .3s,transform .3s;box-shadow:inset 0 1px 0 rgba(255,255,255,.5)}
+.chips span:hover{border-color:var(--stroke2);color:var(--text);transform:translateY(-1px)}
+/* ===== 尾部 CTA ===== */
+.cta{padding:120px 0 44px;text-align:center}
+.cta-title{font-size:clamp(34px,6.5vw,68px);font-weight:800;letter-spacing:-.04em;line-height:1.1;background:linear-gradient(180deg,#111114 22%,rgba(29,29,31,.58) 80%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cta-sub{color:var(--text2);margin-top:16px;font-size:clamp(15px,1.9vw,18px)}
+.cta-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:36px}
+.footer{margin-top:70px;padding:28px 0 44px;border-top:1px solid rgba(29,29,31,.07);display:flex;flex-direction:column;gap:8px;align-items:center;text-align:center}
+.footer .f-name{font-size:14px;font-weight:600}
+.footer .f-line{font-size:12.5px;color:var(--text3)}
+.footer .f-line a{color:var(--text2)}
+.footer .f-line a:hover{color:var(--accent)}
+/* ===== 滚动揭示 ===== */
+[data-reveal]{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+[data-reveal].in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  [data-reveal]{opacity:1;transform:none;transition:none}
+  .blob,.scroll-hint .mouse::after{animation:none!important}
+  .hero-grid [data-in]{animation:none}
+}
+/* ===== 响应式 ===== */
+@media(min-width:760px){
+  .overview-grid{grid-template-columns:1fr 1fr}
+  .before-after{grid-template-columns:1fr 1fr}
+  .reli-grid{grid-template-columns:repeat(2,1fr)}
+  .feat-grid{grid-template-columns:repeat(2,1fr)}
+  .metric-row{grid-template-columns:repeat(4,1fr)}
+  .proj-hero{padding:56px 48px}
+  .hero-tags{margin-top:2px}
+}
+@media(min-width:1080px){
+  .reli-grid{grid-template-columns:repeat(4,1fr)}
+}
+</style>
+</head>
+<body>
+<div class="aurora" aria-hidden="true">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+  <div class="blob b4"></div>
+</div>
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" id="progress"></div>
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top"><span class="dot">W</span>黄书磊 · 作品集</a>
+    <div class="nav-links">
+      <a href="#overview">项目</a>
+      <a href="#agentppt">Agent-PPT</a>
+      <a href="#translate">沁言翻译</a>
+      <a href="https://h777000.github.io/resume/huangshulei/" target="_blank" rel="noopener">个人简历</a>
+    </div>
+    <a class="nav-cta" href="#contact">联系我</a>
+  </div>
+</nav>
+<main id="top">
+<header class="hero">
+  <div class="hero-watermark" aria-hidden="true">WORKS</div>
+  <div class="wrap hero-grid">
+    <div class="hero-badge" data-in="b">PORTFOLIO · 作品集</div>
+    <h1 class="hero-title" data-in="t">作品集</h1>
+    <p class="hero-role" data-in="r">亲手做过、上线在跑的 <b>AI 产品</b> —— 不只是简历上的文字，而是能点开就用的实物。</p>
+    <div class="hero-tags" data-in="s">
+      <span class="tag">Agent-PPT</span><span class="tag">沁言翻译</span><span class="tag">真实上线</span><span class="tag">可直接体验</span>
+    </div>
+  </div>
+  <a class="scroll-hint" href="#overview" aria-label="向下滚动">
+    <span class="mouse"></span>
+    <span>SCROLL</span>
+  </a>
+</header>
+
+<!-- ===== 项目总览 ===== -->
+<section class="section" id="overview">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <div class="sec-kicker">SELECTED WORKS</div>
+      <h2 class="sec-title">两个上线产品</h2>
+      <p class="sec-sub">每个项目都是一次「从需求到上线」的完整闭环。下面这两个产品至今在线上运行，点进去就能直接使用。</p>
+    </div>
+    <div class="overview-grid">
+      <a class="glass ov-card hoverable" data-reveal href="#agentppt">
+        <div class="ov-num num">01</div>
+        <div class="ov-top">
+          <div class="ov-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2" /><path d="M8 21h8m-4-4v4" /><path d="m6 8 4 4-4 4" /></svg>
+          </div>
+          <span class="ov-name">Agent-PPT</span>
+          <span class="badge">主力项目</span>
+        </div>
+        <p class="ov-desc">对话式 AI 生成 PPT。主导任务队列架构改造，把成功率从 60% 提升到 95%+，并独立完成 v2/v3 智能体编排。</p>
+        <div class="ov-tags">
+          <span class="mini-tag">任务状态机</span><span class="mini-tag">异步架构</span><span class="mini-tag">智能体编排</span><span class="mini-tag">VLM 校验</span>
+        </div>
+        <span class="ov-go">查看项目复盘
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6" /></svg>
+        </span>
+      </a>
+      <a class="glass ov-card hoverable" data-reveal href="#translate" style="transition-delay:.1s">
+        <div class="ov-num num">02</div>
+        <div class="ov-top">
+          <div class="ov-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h9m-2.5 0L8 13m0 0L5 5m3 8 3-8" /><path d="M13 8h7l-3.5 7M17.5 8 14 15" /><path d="M3 19h9m-2.5 0L8 15m0 0 2.5 4" /></svg>
+          </div>
+          <span class="ov-name">沁言学术翻译</span>
+          <span class="badge">独立搭建</span>
+        </div>
+        <p class="ov-desc">学术文档 AI 翻译，保版式 PDF 导出。独立完成从翻译引擎到 512MB 大文档防护、SSE 断点续传的全栈实现。</p>
+        <div class="ov-tags">
+          <span class="mini-tag">PDF 保版式</span><span class="mini-tag">SSE 续传</span><span class="mini-tag">OOM 防护</span><span class="mini-tag">结算防重</span>
+        </div>
+        <span class="ov-go">查看项目复盘
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6" /></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 项目一：Agent-PPT ===== -->
+<section class="section" id="agentppt">
+  <div class="wrap">
+    <div class="glass proj-hero" data-reveal>
+      <div class="proj-head">
+        <div class="proj-title-row">
+          <h2 class="proj-title">Agent-PPT</h2>
+          <span class="badge">主力项目</span>
+          <a class="proj-url" href="https://app.qinyanai.com" target="_blank" rel="noopener">app.qinyanai.com
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7m0 0H8m9 0v9" /></svg>
+          </a>
+        </div>
+        <p class="proj-one">对话式 AI 生成 PPT —— 说一句话，自动生成一套可编辑的演示文稿。</p>
+        <p class="proj-lead">我在这里承担任务架构改造与智能体编排两大块：把原来「浏览器开着任务才活着」的直连架构，重构为高可用的异步任务系统，并独立实现 v2/v3 两代智能体编排流程。</p>
+        <div class="btn-row">
+          <a class="btn primary" href="https://app.qinyanai.com" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3v18l14-9L6 3z" /></svg>
+            打开产品体验
+          </a>
+          <a class="btn ghost" href="#agentppt-metrics">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5m0 14h16" /><path d="m8 15 3-4 3 2 4-6" /></svg>
+            看关键数据
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-head" data-reveal>核心改造 · 架构演进</div>
+    <div class="before-after" data-reveal>
+      <div class="ba-card before">
+        <span class="ba-label">改造前</span>
+        <div class="ba-title">SSE 直连 · 任务绑死在浏览器连接上</div>
+        <p>生成任务通过 SSE 长连接直连前端。浏览器一刷新、一关闭，任务就断掉，用户得从头再来 —— 线上成功率只有 60% 左右。</p>
+      </div>
+      <div class="ba-card after">
+        <span class="ba-label">改造后</span>
+        <div class="ba-title">Celery 独立队列 · 任务与连接解绑</div>
+        <p>任务进入独立队列由 worker 异步执行，页面级 checkpoint 记录进度。任务生命周期与浏览器连接彻底解绑，线上成功率稳定在 95%+。</p>
+      </div>
+    </div>
+
+    <div class="sub-head" data-reveal>任务状态机 · 8 态流转</div>
+    <div class="glass" data-reveal style="padding:34px 26px">
+      <div class="flow" id="stateFlow">
+        <div class="flow-step"><div class="flow-node"><span class="flow-dot num">1</span><span class="flow-label">任务提交</span></div></div>
+        <div class="flow-arrow"></div>
+        <div class="flow-step"><div class="flow-node"><span class="flow-dot num">2</span><span class="flow-label">队列排队</span></div></div>
+        <div class="flow-arrow"></div>
+        <div class="flow-step"><div class="flow-node"><span class="flow-dot num">3</span><span class="flow-label">原子认领</span></div></div>
+        <div class="flow-arrow"></div>
+        <div class="flow-step"><div class="flow-node"><span class="flow-dot num">4</span><span class="flow-label">流式生成</span></div></div>
+        <div class="flow-arrow"></div>
+        <div class="flow-step"><div class="flow-node"><span class="flow-dot num">5</span><span class="flow-label">图片落版</span></div></div>
+        <div class="flow-arrow"></div>
+        <div class="flow-step"><div class="flow-node"><span class="flow-dot num">6</span><span class="flow-label">VLM 校验</span></div></div>
+        <div class="flow-arrow"></div>
+        <div class="flow-step"><div class="flow-node"><span class="flow-dot num">7</span><span class="flow-label">导出门禁</span></div></div>
+        <div class="flow-arrow"></div>
+        <div class="flow-step"><div class="flow-node"><span class="flow-dot num">8</span><span class="flow-label">任务完成</span></div></div>
+      </div>
+    </div>
+
+    <div class="sub-head" data-reveal>可靠性机制 · 四道防线</div>
+    <div class="reli-grid" data-reveal>
+      <div class="glass reli hoverable">
+        <div class="r-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3" /><circle cx="12" cy="15" r="1.6" /></svg>
+        </div>
+        <h4>Worker 原子认领</h4>
+        <p>数据库行锁 + 执行令牌防重，同一个任务不会被两个 worker 重复执行。</p>
+      </div>
+      <div class="glass reli hoverable">
+        <div class="r-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.6" /><path d="M20 4v4h-4" /></svg>
+        </div>
+        <h4>Stale 任务回收</h4>
+        <p>异常中断的僵尸任务自动检测回收，避免任务卡死、资源泄漏。</p>
+      </div>
+      <div class="glass reli hoverable">
+        <div class="r-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 18 0" /><path d="M3 12h4l2-3 3 6 2-3h7" /><path d="M5 12h14" /></svg>
+        </div>
+        <h4>请求幂等防重</h4>
+        <p>重复提交只执行一次，从源头解决重复扣费问题。</p>
+      </div>
+      <div class="glass reli hoverable">
+        <div class="r-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5c0 4.5 3 7.5 7 10 4-2.5 7-5.5 7-10V6l-7-3z" /><path d="m9 12 2 2 4-4" /></svg>
+        </div>
+        <h4>导出前状态门禁</h4>
+        <p>状态不满足不导出，杜绝半成品 PPT 文件流入用户手里。</p>
+      </div>
+    </div>
+
+    <div class="sub-head" data-reveal>智能体编排 · v2/v3 两代</div>
+    <div class="glass" data-reveal style="padding:32px 30px">
+      <p style="font-size:14.5px;color:var(--text2);line-height:1.9;margin-bottom:18px">独立实现 v2/v3 智能体编排（前后端 153 条提交），核心是让「对话生成 PPT」这件事可拆解、可校验、可降级：</p>
+      <div class="feat-grid">
+        <div class="feat">
+          <div class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10" /></svg></div>
+          <h4>分批流式大纲</h4>
+          <p>大纲分批生成、流式推送，用户边看边改，不用等全部完成。</p>
+        </div>
+        <div class="feat">
+          <div class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M7 15h4m-4-4h10" /></svg></div>
+          <h4>页数增量合成</h4>
+          <p>按页增量生成，新增一页不影响已生成页面，支持任意续改。</p>
+        </div>
+        <div class="feat">
+          <div class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><path d="m21 15-5-5L5 21" /></svg></div>
+          <h4>图片落版校验</h4>
+          <p>AI 配图自动校验与版面匹配，不合格的图不进页面。</p>
+        </div>
+        <div class="feat">
+          <div class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" /><circle cx="12" cy="12" r="3" /></svg></div>
+          <h4>VLM 视觉复核降级</h4>
+          <p>视觉模型复核关键页面，异常时自动降级重试，保证出片质量。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="glass metrics" id="agentppt-metrics" data-reveal>
+      <div class="metrics-title">关键数据</div>
+      <div class="metric-row">
+        <div class="stat">
+          <div class="label">线上成功率</div>
+          <div class="value num"><span class="cnt" data-target="95">0</span><span style="font-size:.45em;color:var(--text3);margin-left:4px">%+</span></div>
+          <div class="sub">任务队列高可用改造后稳定水平</div>
+        </div>
+        <div class="stat">
+          <div class="label">任务状态机</div>
+          <div class="value num"><span class="cnt" data-target="8">0</span><span style="font-size:.45em;color:var(--text3);margin-left:4px">态</span></div>
+          <div class="sub">全生命周期流转可控</div>
+        </div>
+        <div class="stat">
+          <div class="label">智能体编排提交</div>
+          <div class="value num"><span class="cnt" data-target="153">0</span><span style="font-size:.45em;color:var(--text3);margin-left:4px">条</span></div>
+          <div class="sub">v2/v3 前后端独立实现</div>
+        </div>
+        <div class="stat">
+          <div class="label">核心改造方向</div>
+          <div class="value num" style="font-size:clamp(24px,3.6vw,40px)">连接解绑</div>
+          <div class="sub">任务与浏览器生命周期彻底分离</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 项目二：沁言学术翻译 ===== -->
+<section class="section" id="translate">
+  <div class="wrap">
+    <div class="glass proj-hero" data-reveal>
+      <div class="proj-head">
+        <div class="proj-title-row">
+          <h2 class="proj-title">沁言学术翻译</h2>
+          <span class="badge">独立搭建</span>
+          <a class="proj-url" href="https://translate.qinyanai.com" target="_blank" rel="noopener">translate.qinyanai.com
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7m0 0H8m9 0v9" /></svg>
+          </a>
+        </div>
+        <p class="proj-one">学术文档 AI 翻译 —— 上传论文，得到保留版式的双语对照 PDF。</p>
+        <p class="proj-lead">这个产品由我从零独立搭建：翻译引擎、前后端、文件解析到导出全链路一个人完成，重点解决了大文档不崩、长任务不断、重复请求不扣钱三个硬问题。</p>
+        <div class="btn-row">
+          <a class="btn primary" href="https://translate.qinyanai.com" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3v18l14-9L6 3z" /></svg>
+            打开产品体验
+          </a>
+          <a class="btn ghost" href="#translate-metrics">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5m0 14h16" /><path d="m8 15 3-4 3 2 4-6" /></svg>
+            看关键数据
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-head" data-reveal>功能亮点 · 四个硬问题</div>
+    <div class="feat-grid" data-reveal>
+      <div class="glass feat hoverable">
+        <div class="f-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9l-6-6z" /><path d="M14 3v6h6" /><path d="M8 13h8m-8 4h5" /></svg>
+        </div>
+        <h4>保版式 PDF 导出</h4>
+        <p>翻译结果保留原论文的版式、公式与图表位置，导出即可直接使用。</p>
+      </div>
+      <div class="glass feat hoverable">
+        <div class="f-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V4h16v3" /><path d="M9 20h6" /><path d="M12 4v16" /><path d="m4 7 2 13h12l2-13" /></svg>
+        </div>
+        <h4>512MB 大文档 OOM 防护</h4>
+        <p>超大文档分块处理 + 内存水位控制，长文档不崩、不爆内存。</p>
+      </div>
+      <div class="glass feat hoverable">
+        <div class="f-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6" /><path d="m11 8-6 6" /><path d="M14 9h3a3 3 0 0 1 0 6h-3v-6z" /><path d="M17 15v3m-3-3h3" /></svg>
+        </div>
+        <h4>双语对照</h4>
+        <p>原文与译文逐段对照，方便学术阅读与核对术语。</p>
+      </div>
+      <div class="glass feat hoverable">
+        <div class="f-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 2" /><circle cx="12" cy="12" r="9" /></svg>
+        </div>
+        <h4>历史管理</h4>
+        <p>翻译记录与结果持久化保存，随时回看、重新导出。</p>
+      </div>
+    </div>
+
+    <div class="sub-head" data-reveal>深度研究 · 长任务与结算</div>
+    <div class="before-after" data-reveal>
+      <div class="ba-card">
+        <span class="ba-label">SSE 流断点续传</span>
+        <div class="ba-title">基于 Redis 的流式续传</div>
+        <p>长文档翻译中途断网不再重来：进度与已生成内容写入 Redis，恢复后从断点继续，不浪费已完成的 token。</p>
+      </div>
+      <div class="ba-card">
+        <span class="ba-label">结算加固</span>
+        <div class="ba-title">先持久化、后扣费、防重扣</div>
+        <p>翻译结果落库确认后才扣费；重复请求与失败重试有幂等保护，用户不会为同一次翻译被扣两次钱。</p>
+      </div>
+    </div>
+
+    <div class="glass metrics" id="translate-metrics" data-reveal>
+      <div class="metrics-title">关键数据</div>
+      <div class="metric-row">
+        <div class="stat">
+          <div class="label">大文档防护</div>
+          <div class="value num"><span class="cnt" data-target="512">0</span><span style="font-size:.45em;color:var(--text3);margin-left:4px">MB</span></div>
+          <div class="sub">OOM 防护 · 分块处理</div>
+        </div>
+        <div class="stat">
+          <div class="label">断点续传</div>
+          <div class="value num"><span class="cnt" data-target="100">0</span><span style="font-size:.45em;color:var(--text3);margin-left:4px">%</span></div>
+          <div class="sub">基于 Redis · 进度不丢失</div>
+        </div>
+        <div class="stat">
+          <div class="label">结算防重</div>
+          <div class="value num">幂等</div>
+          <div class="sub">先持久化 · 后扣费</div>
+        </div>
+        <div class="stat">
+          <div class="label">产品形态</div>
+          <div class="value num" style="font-size:clamp(24px,3.6vw,40px)">全栈闭环</div>
+          <div class="sub">一个人从零搭建到上线</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 能力总结 ===== -->
+<section class="section" id="skills">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <div class="sec-kicker">WHAT THESE SHIP</div>
+      <h2 class="sec-title">两个项目，沉淀了什么</h2>
+      <p class="sec-sub">做作品集的意义在于：每一个技术词后面都有真实上线在跑的系统做支撑，而不是简历上的一句口号。</p>
+    </div>
+    <div class="glass skill-band" data-reveal>
+      <div class="line">
+        <span class="lv">架构</span>
+        <div class="chips">
+          <span>任务状态机</span><span>Celery 异步队列</span><span>连接解绑</span><span>原子认领</span><span>幂等防重</span>
+        </div>
+      </div>
+      <div class="line">
+        <span class="lv">工程</span>
+        <div class="chips">
+          <span>Python</span><span>Django</span><span>FastAPI</span><span>Redis</span><span>MySQL</span><span>SSE 流式</span><span>分块处理</span>
+        </div>
+      </div>
+      <div class="line">
+        <span class="lv">AI</span>
+        <div class="chips">
+          <span>大模型 API 工程化</span><span>RAG</span><span>智能体编排</span><span>VLM 视觉校验</span><span>降级重试</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 尾部 CTA ===== -->
+<section class="cta" id="contact">
+  <div class="wrap">
+    <h2 class="cta-title" data-reveal>一起做点有意思的事</h2>
+    <p class="cta-sub" data-reveal style="transition-delay:.1s">AI 平台工程化 · 大模型应用 · 高可用架构 —— 欢迎联系，随时可以开始一段新项目。</p>
+    <div class="cta-btns" data-reveal style="transition-delay:.2s">
+      <a class="btn primary" href="tel:17744810952">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z" /></svg>
+        17744810952
+      </a>
+      <a class="btn ghost" href="mailto:h123577@163.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="3" /><path d="m3 6 9 7 9-7" /></svg>
+        h123577@163.com
+      </a>
+      <a class="btn ghost" href="https://h777000.github.io/resume/huangshulei/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 2 7l10 5 10-5-10-5z" /><path d="m2 12 10 5 10-5" /><path d="m2 17 10 5 10-5" /></svg>
+        查看个人简历
+      </a>
+    </div>
+    <div class="footer">
+      <div class="f-name">黄书磊 · 作品集</div>
+      <div class="f-line">© 2026 黄书磊 · AI 全栈开发工程师 · 北京</div>
+      <div class="f-line">
+        <a href="https://h777000.github.io/resume/huangshulei/" target="_blank" rel="noopener">个人简历</a> ·
+        <a href="https://app.qinyanai.com" target="_blank" rel="noopener">Agent-PPT</a> ·
+        <a href="https://translate.qinyanai.com" target="_blank" rel="noopener">沁言翻译</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var nav = document.getElementById("nav");
+  var prog = document.getElementById("progress");
+  var aurora = document.querySelector(".aurora");
+  function onScroll(){
+    var y = window.scrollY || window.pageYOffset;
+    nav.classList.toggle("scrolled", y > 24);
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    prog.style.width = (max > 0 ? (y / max) * 100 : 0) + "%";
+    if(!reduce) aurora.style.transform = "translate3d(0," + (y * 0.14) + "px,0)";
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add("in");
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold: .12, rootMargin: "0px 0px -6% 0px"});
+  document.querySelectorAll("[data-reveal]").forEach(function(el){ io.observe(el); });
+  /* 指标数字滚动 */
+  var cntDone = false;
+  var cio = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting && !cntDone){
+        cntDone = true;
+        document.querySelectorAll(".cnt").forEach(function(el){
+          var target = parseInt(el.getAttribute("data-target"), 10);
+          var start = null;
+          function tick(ts){
+            if(!start) start = ts;
+            var p = Math.min((ts - start) / 1500, 1);
+            var eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(target * eased);
+            if(p < 1) requestAnimationFrame(tick);
+            else el.textContent = target;
+          }
+          requestAnimationFrame(tick);
+        });
+        cio.unobserve(e.target);
+      }
+    });
+  }, {threshold: .4});
+  var firstStat = document.querySelector("#agentppt-metrics .metric-row");
+  if(firstStat) cio.observe(firstStat);
+  window.addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+</body>
+</html>
