@@ -235,6 +235,89 @@ h1,h2{text-wrap:balance}
 @media(min-width:1080px){
   .reli-grid{grid-template-columns:repeat(4,1fr)}
 }
+/* ===== 即时体验 demo ===== */
+.try-head{margin-bottom:34px}
+.try-tabs{display:flex;gap:10px;margin-bottom:26px;flex-wrap:wrap}
+.try-tab{display:inline-flex;align-items:center;gap:9px;padding:12px 24px;border-radius:999px;font-size:14.5px;font-weight:600;color:var(--text2);background:var(--glass);border:1px solid var(--stroke);cursor:pointer;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);transition:all .35s var(--ease);font-family:inherit}
+.try-tab svg{width:15px;height:15px;opacity:.7}
+.try-tab:hover{color:var(--text);border-color:rgba(29,29,31,.22)}
+.try-tab.active{color:#fff;background:linear-gradient(135deg,var(--accent),#00499e);border-color:transparent;box-shadow:0 10px 28px rgba(0,102,204,.28)}
+.try-tab.active svg{opacity:1}
+.demo-panel{display:none}
+.demo-panel.active{display:block;animation:panelIn .5s var(--ease)}
+@keyframes panelIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.demo-box{padding:30px}
+.demo-intro{font-size:14.5px;color:var(--text2);line-height:1.7}
+.demo-io{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+.demo-input{flex:1;min-width:220px;padding:14px 20px;font-size:16px;color:var(--text);background:rgba(255,255,255,.75);border:1px solid var(--stroke);border-radius:14px;outline:none;transition:border-color .3s;font-family:inherit}
+.demo-input:focus{border-color:rgba(0,102,204,.45)}
+textarea.demo-input{resize:vertical;min-height:86px;line-height:1.7}
+.demo-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;font-size:14.5px;font-weight:600;color:#fff;background:linear-gradient(135deg,var(--accent),#00499e);border:none;border-radius:14px;cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s var(--ease);font-family:inherit}
+.demo-btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,102,204,.3)}
+.demo-btn:disabled{opacity:.55;cursor:default;transform:none;box-shadow:none}
+.demo-link{display:inline-flex;align-items:center;gap:7px;padding:14px 24px;font-size:14px;font-weight:600;color:var(--text);background:var(--glass);border:1px solid var(--stroke);border-radius:14px;text-decoration:none;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);transition:all .3s var(--ease)}
+.demo-link:hover{transform:translateY(-2px);border-color:rgba(29,29,31,.3)}
+.demo-link svg{width:15px;height:15px}
+.demo-note{font-size:12.5px;color:var(--text3);margin-top:18px;text-align:center}
+/* 8 态流转 */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:24px}
+.fstate{position:relative;padding:12px 10px;border-radius:12px;border:1px solid var(--stroke);background:rgba(255,255,255,.55);text-align:center;font-size:12.5px;color:var(--text3);transition:all .4s var(--ease)}
+.fstate .fn{display:block;font-size:12px;font-weight:700;letter-spacing:.04em;margin-bottom:3px;opacity:.55}
+.fstate .fd{display:block;font-size:11px;line-height:1.4;opacity:.8}
+.fstate.pending{opacity:.45}
+.fstate.on{border-color:rgba(0,102,204,.55);background:rgba(0,102,204,.08);color:var(--accent)}
+.fstate.on .fn{opacity:1}
+.fstate.done{border-color:rgba(0,102,204,.35);background:rgba(0,102,204,.06);color:var(--text)}
+.fstate.done .fn{opacity:.9}
+.fstate.pulse::after{content:"";position:absolute;inset:-3px;border-radius:14px;border:2px solid rgba(0,102,204,.35);animation:pulse 1.2s ease-out infinite}
+@keyframes pulse{0%{transform:scale(.96);opacity:1}70%{transform:scale(1.06);opacity:.3}100%{transform:scale(1.06);opacity:0}}
+/* PPT 结果 */
+.slides{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+.slide{border:1px solid var(--stroke);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 12px 32px rgba(29,29,31,.07);transition:transform .4s var(--ease)}
+.slide:hover{transform:translateY(-5px)}
+.slide-cover{height:150px;display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:700;color:#fff;background:linear-gradient(135deg,#0066cc,#00b3ff);padding:18px;text-align:center;line-height:1.4}
+.slide-body{padding:16px 18px}
+.slide-body h5{font-size:14px;margin:0 0 8px;color:var(--text)}
+.slide-body li{font-size:12.5px;color:var(--text2);line-height:1.55;margin-left:16px;margin-bottom:4px}
+.pnum{font-size:11px;font-weight:700;color:var(--text3);letter-spacing:.05em}
+/* 翻译对照 */
+.bi{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.bi-col{border:1px solid var(--stroke);border-radius:14px;padding:16px 18px;font-size:14px;line-height:1.8;background:rgba(255,255,255,.6)}
+.bc-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.05em;color:var(--accent);margin-bottom:10px}
+.bi-out{white-space:pre-wrap;min-height:80px;color:var(--text2)}
+.caret{display:inline-block;width:7px;height:16px;background:var(--accent);vertical-align:-3px;animation:blink .8s steps(2) infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.sse-bar{height:4px;border-radius:99px;background:rgba(0,102,204,.12);overflow:hidden;margin-top:18px}
+.sse-fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--cyan));border-radius:99px;transition:width .3s linear}
+/* 学术检索 */
+.sources{margin-top:24px;display:flex;flex-direction:column;gap:8px}
+.src-row{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:12px;border:1px solid var(--stroke);background:rgba(255,255,255,.55);font-size:13.5px;color:var(--text2);transition:all .4s var(--ease)}
+.src-row .st{width:10px;height:10px;border-radius:50%;background:rgba(29,29,31,.18);flex:none}
+.src-row.on .st{background:#f5a623;animation:pulse 1s ease-out infinite}
+.src-row.done .st{background:#34c759}
+.src-row .sname{font-weight:600;color:var(--text);width:92px;flex:none}
+.src-row .smsg{font-size:12.5px;color:var(--text3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.results{display:flex;flex-direction:column;gap:12px;margin-top:24px}
+.result{border:1px solid var(--stroke);border-radius:14px;padding:16px 18px;background:rgba(255,255,255,.65);transition:transform .35s var(--ease)}
+.result:hover{transform:translateY(-2px)}
+.result h5{margin:0 0 8px;font-size:14.5px;color:var(--text);line-height:1.5}
+.result .meta{display:flex;gap:10px;align-items:center;font-size:11.5px;color:var(--text3);margin-bottom:10px;flex-wrap:wrap}
+.src-tag{padding:2px 9px;border-radius:99px;background:rgba(0,102,204,.08);color:var(--accent);font-weight:600}
+.result .rel{display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--text3)}
+.rel-bar{flex:1;max-width:120px;height:5px;border-radius:99px;background:rgba(29,29,31,.09);overflow:hidden}
+.rel-fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--cyan));border-radius:99px;transition:width .6s var(--ease)}
+.result p{font-size:13px;color:var(--text2);line-height:1.65;margin:0}
+@media print{
+  body *{visibility:hidden}
+  .printable,.printable *{visibility:visible}
+  .printable{position:absolute;left:0;top:0;width:100%}
+}
+@media(max-width:640px){
+  .flow{grid-template-columns:repeat(2,1fr)}
+  .slides{grid-template-columns:1fr}
+  .bi{grid-template-columns:1fr}
+  .try-tabs{flex-direction:column}
+}
 </style>
 </head>
 <body>
@@ -274,6 +357,97 @@ h1,h2{text-wrap:balance}
     <span>SCROLL</span>
   </a>
 </header>
+
+<!-- ===== 即时体验 ===== -->
+<section class="section" id="try">
+  <div class="wrap">
+    <div class="sec-head try-head" data-reveal>
+      <div class="sec-kicker">LIVE DEMO · 即时体验</div>
+      <h2 class="sec-title">在页面上直接试用</h2>
+      <p class="sec-sub">三个演示舱，走一遍产品的核心流程——不需要登录、不需要 API，打开就能玩。完整功能请打开线上产品体验。</p>
+    </div>
+    <div class="glass demo-box" data-reveal>
+      <div class="try-tabs" id="tryTabs">
+        <button class="try-tab active" type="button" data-panel="p1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5m0 14h16"/><path d="m9 15 3-4 3 3 2-3"/></svg>
+          Agent-PPT 生成
+        </button>
+        <button class="try-tab" type="button" data-panel="p2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m5 8 6 6"/><path d="m11 8-6 6"/><path d="M14 9h3a3 3 0 0 1 0 6h-3v-6z"/><path d="M17 15v3m-3-3h3"/></svg>
+          沁言翻译
+        </button>
+        <button class="try-tab" type="button" data-panel="p3">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          学术检索
+        </button>
+      </div>
+
+      <div class="demo-panel active" id="p1">
+        <p class="demo-intro">输入一个主题，走一遍 Agent-PPT 的 8 态生成流程：任务提交 → 队列排队 → 原子认领 → 流式生成 → 图片落版 → VLM 校验 → 导出门禁 → 完成。</p>
+        <div class="demo-io">
+          <input class="demo-input" id="pptInput" type="text" value="AI Agent 技术趋势" maxlength="40" placeholder="输入 PPT 主题，如：AI Agent 技术趋势">
+          <button class="demo-btn" id="pptRun" type="button">开始生成</button>
+          <a class="demo-link" href="https://app.qinyanai.com" target="_blank" rel="noopener">打开完整版
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7m0 0H8m9 0v9"/></svg>
+          </a>
+        </div>
+        <div class="flow" id="pptFlow">
+          <div class="fstate pending"><span class="fn">01 任务提交</span><span class="fd">进入生成队列</span></div>
+          <div class="fstate pending"><span class="fn">02 队列排队</span><span class="fd">等待 worker 调度</span></div>
+          <div class="fstate pending"><span class="fn">03 原子认领</span><span class="fd">行锁 + 执行令牌</span></div>
+          <div class="fstate pending"><span class="fn">04 流式生成</span><span class="fd">大纲分批推送</span></div>
+          <div class="fstate pending"><span class="fn">05 图片落版</span><span class="fd">配图自动校验</span></div>
+          <div class="fstate pending"><span class="fn">06 VLM 校验</span><span class="fd">视觉复核降级</span></div>
+          <div class="fstate pending"><span class="fn">07 导出门禁</span><span class="fd">状态门禁检查</span></div>
+          <div class="fstate pending"><span class="fn">08 任务完成</span><span class="fd">可编辑 PPT 产出</span></div>
+        </div>
+        <div class="slides" id="pptOut" hidden></div>
+        <div class="demo-note">演示模式 · 前端模拟生成流程，展示交互与产品形态；真实 PPT 由大模型生成，请在 app.qinyanai.com 体验</div>
+      </div>
+
+      <div class="demo-panel" id="p2">
+        <p class="demo-intro">粘贴一段英文，体验 SSE 流式翻译：译文逐段边生成边推送，进度实时可见。可一键填入示例。</p>
+        <div class="demo-io">
+          <textarea class="demo-input" id="trInput" placeholder="粘贴英文段落…"></textarea>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <button class="demo-link" id="trSample" type="button">填入示例</button>
+            <button class="demo-btn" id="trRun" type="button">开始翻译</button>
+            <button class="demo-link" id="trPrint" type="button">导出 PDF</button>
+            <a class="demo-link" href="https://translate.qinyanai.com" target="_blank" rel="noopener">打开完整版
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7m0 0H8m9 0v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="sse-bar"><div class="sse-fill" id="trBar"></div></div>
+        <div class="bi printable" id="trBi" hidden>
+          <div class="bi-col"><span class="bc-tag">原文</span><div id="trSrc" style="color:var(--text2)"></div></div>
+          <div class="bi-col"><span class="bc-tag">译文 · SSE 流式输出</span><div class="bi-out" id="trOut"></div></div>
+        </div>
+        <div class="demo-note">演示模式 · 前端模拟流式输出效果；真实翻译调用大模型，请在 translate.qinyanai.com 体验</div>
+      </div>
+
+      <div class="demo-panel" id="p3">
+        <p class="demo-intro">输入一个研究问题，体验学术 Agent 的多库联合检索：5 个学术源并行检索 → 结果去重 → 按质量排序。</p>
+        <div class="demo-io">
+          <input class="demo-input" id="acInput" type="text" value="大模型 Agent 可靠性" maxlength="40" placeholder="输入研究问题，如：RAG 检索增强">
+          <button class="demo-btn" id="acRun" type="button">开始检索</button>
+          <a class="demo-link" href="https://www.lingxixiangban.com" target="_blank" rel="noopener">打开完整版
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7m0 0H8m9 0v9"/></svg>
+          </a>
+        </div>
+        <div class="sources" id="acSources">
+          <div class="src-row"><span class="st"></span><span class="sname">arXiv</span><span class="smsg">等待连接</span></div>
+          <div class="src-row"><span class="st"></span><span class="sname">PubMed</span><span class="smsg">等待连接</span></div>
+          <div class="src-row"><span class="st"></span><span class="sname">Google Scholar</span><span class="smsg">等待连接</span></div>
+          <div class="src-row"><span class="st"></span><span class="sname">万方数据</span><span class="smsg">等待连接</span></div>
+          <div class="src-row"><span class="st"></span><span class="sname">CNKI 知网</span><span class="smsg">等待连接</span></div>
+        </div>
+        <div class="results" id="acResults"></div>
+        <div class="demo-note">演示模式 · 前端模拟检索过程；真实检索聚合多源学术库，请在 www.lingxixiangban.com 体验</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ===== 项目总览 ===== -->
 <section class="section" id="overview">
@@ -685,6 +859,177 @@ h1,h2{text-wrap:balance}
   if(firstStat) cio.observe(firstStat);
   window.addEventListener("scroll", onScroll, {passive:true});
   onScroll();
+
+  /* ===== 即时体验 demo ===== */
+  function $q(s){ return document.querySelector(s); }
+
+  /* Tab 切换 */
+  var tabs = document.querySelectorAll(".try-tab");
+  tabs.forEach(function(t){
+    t.addEventListener("click", function(){
+      tabs.forEach(function(x){ x.classList.remove("active"); });
+      t.classList.add("active");
+      document.querySelectorAll(".demo-panel").forEach(function(p){ p.classList.remove("active"); });
+      var panel = document.getElementById(t.getAttribute("data-panel"));
+      if(panel) panel.classList.add("active");
+    });
+  });
+
+  /* —— Agent-PPT · 8 态流转演示 —— */
+  var pptRunning = false;
+  function runPpt(){
+    if(pptRunning) return;
+    pptRunning = true;
+    var btn = $q("#pptRun"); btn.disabled = true;
+    var theme = ($q("#pptInput").value || "").trim();
+    if(!theme) theme = "AI Agent 技术趋势";
+    var states = document.querySelectorAll("#pptFlow .fstate");
+    var out = $q("#pptOut"); out.hidden = true;
+    states.forEach(function(s){ s.className = "fstate pending"; });
+    var i = 0;
+    function step(){
+      if(i > 0){
+        var prev = states[i-1];
+        prev.classList.remove("pulse"); prev.classList.add("done");
+      }
+      if(i >= states.length){
+        buildSlides(theme);
+        btn.disabled = false; pptRunning = false;
+        return;
+      }
+      var s = states[i];
+      s.classList.remove("pending"); s.classList.add("on", "pulse");
+      i++;
+      setTimeout(step, 600);
+    }
+    setTimeout(step, 350);
+  }
+  function buildSlides(theme){
+    var titles = [theme, "核心能力", "架构设计", "落地成果"];
+    var points = [
+      ["一句话说清主题", "目标用户与场景", "交付什么价值"],
+      ["任务状态机 · 8 态流转", "Celery 异步队列", "连接解绑 · 高可用"],
+      ["原子认领防重", "幂等与状态门禁", "VLM 视觉校验"],
+      ["线上成功率 95%+", "153 条独立提交", "可编辑 PPT 输出"]
+    ];
+    var out = $q("#pptOut");
+    out.innerHTML = "";
+    titles.forEach(function(t, i){
+      var d = document.createElement("div"); d.className = "slide";
+      var c = document.createElement("div"); c.className = "slide-cover";
+      if(i > 0) c.style.background = (i % 2) ? "linear-gradient(135deg,#00499e,#0066cc)" : "linear-gradient(135deg,#0066cc,#00b3ff)";
+      c.textContent = t;
+      var b = document.createElement("div"); b.className = "slide-body";
+      var pn = document.createElement("div"); pn.className = "pnum"; pn.textContent = "SLIDE 0" + (i + 1);
+      var ul = document.createElement("ul");
+      points[i].forEach(function(p){ var li = document.createElement("li"); li.textContent = p; ul.appendChild(li); });
+      b.appendChild(pn); b.appendChild(ul);
+      d.appendChild(c); d.appendChild(b); out.appendChild(d);
+    });
+    out.hidden = false;
+  }
+  var pptRunBtn = $q("#pptRun");
+  if(pptRunBtn) pptRunBtn.addEventListener("click", runPpt);
+  var pptInput = $q("#pptInput");
+  if(pptInput) pptInput.addEventListener("keydown", function(e){ if(e.key === "Enter") runPpt(); });
+
+  /* —— 沁言翻译 · SSE 流式演示 —— */
+  var TR_SAMPLE = "Large language models have transformed how we interact with software. This paper presents an agent-based approach to automated presentation generation, where a task queue decouples generation from the browser session and a state machine guarantees reliability end to end.";
+  var trRunning = false;
+  function runTr(){
+    if(trRunning) return;
+    trRunning = true;
+    var btn = $q("#trRun"); btn.disabled = true;
+    var srcText = ($q("#trInput").value || "").trim();
+    if(!srcText){ $q("#trInput").value = TR_SAMPLE; srcText = TR_SAMPLE; }
+    $q("#trSrc").textContent = srcText;
+    var out = $q("#trOut"); out.innerHTML = "";
+    var bar = $q("#trBar"); bar.style.width = "0%";
+    var bi = $q("#trBi"); bi.hidden = false;
+    var dest = (srcText === TR_SAMPLE)
+      ? "大语言模型正在改变我们与软件的交互方式。本文提出一种基于智能体的自动化演示文稿生成方法：任务队列将生成过程与浏览器会话解耦，状态机从端到端保障可靠性。"
+      : "（演示译文）这是一段模拟的流式翻译输出：系统按句切分原文，逐段调用大模型生成译文，并通过 SSE 通道边生成边推送，进度实时可见；若中途断网，进度已写入 Redis，恢复后可断点续传。完整翻译效果请打开线上产品体验。";
+    var chars = dest.split("");
+    var i = 0;
+    var caret = document.createElement("span"); caret.className = "caret"; out.appendChild(caret);
+    var timer = setInterval(function(){
+      var n = 2 + Math.floor(Math.random() * 3);
+      out.insertBefore(document.createTextNode(chars.slice(i, i + n).join("")), caret);
+      i += n;
+      bar.style.width = Math.min(100, Math.round(i / chars.length * 100)) + "%";
+      if(i >= chars.length){
+        clearInterval(timer);
+        caret.remove();
+        bar.style.width = "100%";
+        btn.disabled = false; trRunning = false;
+      }
+    }, 40);
+  }
+  var trRunBtn = $q("#trRun");
+  if(trRunBtn) trRunBtn.addEventListener("click", runTr);
+  var trSampleBtn = $q("#trSample");
+  if(trSampleBtn) trSampleBtn.addEventListener("click", function(){ $q("#trInput").value = TR_SAMPLE; });
+  var trPrintBtn = $q("#trPrint");
+  if(trPrintBtn) trPrintBtn.addEventListener("click", function(){ window.print(); });
+
+  /* —— 学术 Agent · 多库联合检索演示 —— */
+  var SOURCES = ["arXiv", "PubMed", "Google Scholar", "万方数据", "CNKI 知网"];
+  var acRunning = false;
+  function runAc(){
+    if(acRunning) return;
+    acRunning = true;
+    var btn = $q("#acRun"); btn.disabled = true;
+    var q = ($q("#acInput").value || "").trim();
+    if(!q) q = "大模型 Agent 可靠性";
+    var rows = document.querySelectorAll("#acSources .src-row");
+    var results = $q("#acResults"); results.innerHTML = "";
+    rows.forEach(function(r){
+      r.className = "src-row";
+      r.querySelector(".smsg").textContent = "等待连接";
+    });
+    var hits = [12, 8, 23, 6, 9];
+    var i = 0;
+    function step(){
+      if(i > 0){
+        var r0 = rows[i-1];
+        r0.className = "src-row done";
+        r0.querySelector(".smsg").textContent = "命中 " + hits[i-1] + " 条 · 已去重";
+      }
+      if(i >= rows.length){
+        buildResults(q);
+        btn.disabled = false; acRunning = false;
+        return;
+      }
+      var r = rows[i];
+      r.className = "src-row on";
+      r.querySelector(".smsg").textContent = "检索中…";
+      i++;
+      setTimeout(step, 720);
+    }
+    setTimeout(step, 350);
+  }
+  function buildResults(q){
+    var items = [
+      ["基于任务状态机的 AI Agent 可靠性设计", "arXiv", "2026", 96, "提出 8 态流转 + 原子认领机制，将长任务成功率稳定在 95% 以上，并在生产环境得到验证。"],
+      ["大语言模型智能体编排：从直连到异步解耦", "Google Scholar", "2025", 91, "系统梳理 SSE 直连的断点问题，给出 Celery 独立队列 + 连接解绑的架构演进路径。"],
+      ["面向学术场景的多库联合检索与结果去重", "CNKI 知网", "2026", 87, "聚合多源学术库，5 库联合检索、按质量评分排序并自动去重，显著降低漏检率。"]
+    ];
+    var box = $q("#acResults");
+    items.forEach(function(it){
+      var d = document.createElement("div"); d.className = "result";
+      d.innerHTML = "<h5>" + it[0] + "</h5>" +
+        '<div class="meta"><span class="src-tag">' + it[1] + '</span><span>' + it[2] + '</span></div>' +
+        '<div class="rel">相关度 <span class="rel-bar"><span class="rel-fill" style="width:0%"></span></span><b>' + it[3] + '%</b></div>' +
+        "<p>" + it[4] + "</p>";
+      box.appendChild(d);
+      var fill = d.querySelector(".rel-fill");
+      setTimeout(function(){ fill.style.width = it[3] + "%"; }, 80);
+    });
+  }
+  var acRunBtn = $q("#acRun");
+  if(acRunBtn) acRunBtn.addEventListener("click", runAc);
+  var acInput = $q("#acInput");
+  if(acInput) acInput.addEventListener("keydown", function(e){ if(e.key === "Enter") runAc(); });
 })();
 </script>
 </body>
