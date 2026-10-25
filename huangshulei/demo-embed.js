@@ -1,6 +1,12 @@
 (() => {
   const local = ['127.0.0.1', 'localhost'].includes(location.hostname);
   const origin = window.PORTFOLIO_DEMO_ORIGIN || (local ? (location.port === '8769' ? location.origin : 'http://127.0.0.1:8769') : '');
+  // Warm up only the connection: no iframe, API call or generation is started.
+  if (origin && new URL(origin).origin !== location.origin) {
+    const connection = document.createElement('link');
+    connection.rel = 'preconnect'; connection.href = new URL(origin).origin;
+    document.head.append(connection);
+  }
   const cards = [...document.querySelectorAll('#experience .timeline > article')];
   ['ppt', 'translate'].forEach((kind, i) => {
     const card = cards[i]; if (!card) return;
@@ -23,7 +29,7 @@
         retry.type = 'button'; retry.textContent = '重新加载';
         retry.onclick = () => { window.removeEventListener('message', onReady); box.replaceChildren(); mountDemo(); };
         loading.append(' ', retry);
-      }, 15000);
+      }, 30000);
       const onReady = event => {
         if (event.source !== frame.contentWindow || event.origin !== new URL(origin).origin || event.data?.type !== 'portfolio-demo-ready') return;
         clearTimeout(timeout); loading.remove(); window.removeEventListener('message', onReady);
