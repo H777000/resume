@@ -185,6 +185,15 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
 .proj::before{content:"";position:absolute;left:-27px;top:36px;width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--cyan));box-shadow:0 0 0 4px rgba(0,102,204,.12),0 0 18px rgba(0,102,204,.4)}
 .proj-head{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
 .proj-name{font-size:clamp(19px,2.6vw,23px);font-weight:700;display:flex;align-items:center;flex-wrap:wrap;gap:10px}
+.project-entry{display:flex;align-items:center;flex-wrap:wrap;gap:9px 14px;margin-top:6px}
+.project-launch{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:44px;padding:9px 17px;border:1px solid rgba(0,102,204,.2);border-radius:999px;background:linear-gradient(135deg,rgba(255,255,255,.88),rgba(229,240,255,.72));-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);color:var(--accent);font-size:13px;font-weight:500;line-height:1.5;text-decoration:none;white-space:nowrap;box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 2px 6px rgba(29,29,31,.035);transition:background .2s,border-color .2s,box-shadow .2s,color .2s}
+.project-launch:hover{background:linear-gradient(135deg,rgba(245,250,255,.96),rgba(219,234,255,.86));border-color:rgba(0,102,204,.36);color:#0055ad;box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 4px 12px rgba(0,102,204,.08)}
+.project-launch:active{background:rgba(217,233,253,.9);box-shadow:inset 0 1px 3px rgba(0,80,160,.06)}
+.project-launch:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.project-launch svg{width:14px;height:14px;flex:none;opacity:.8;transition:transform .2s,opacity .2s}
+.project-launch:hover svg{transform:translate(1px,-1px);opacity:1}
+.project-domain{min-width:0;font-size:12px;line-height:1.5;color:var(--text2);overflow-wrap:anywhere}
+@media(prefers-reduced-motion:reduce){.project-launch,.project-launch svg{transition:none}.project-launch:hover svg{transform:none}}
 .badge{font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--accent);border:1px solid rgba(0,102,204,.35);background:rgba(0,102,204,.07);padding:4px 11px;border-radius:999px;white-space:nowrap}
 .link{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--text2);transition:color .3s}
 .link:hover{color:var(--accent)}
@@ -295,6 +304,7 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
 }
 
 </style>
+<link rel="stylesheet" href="./demo-embed.css">
 </head>
 <body>
 <div class="aurora" aria-hidden="true">
@@ -382,7 +392,7 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
     <div class="sec-head" data-reveal>
       <div class="sec-kicker">CORE STRENGTHS</div>
       <h2 class="sec-title">核心优势</h2>
-      <p class="sec-sub">独立交付 3 个上线 AI 产品，覆盖任务架构、可靠性设计与智能体编排。</p>
+      <p class="sec-sub">参与 AI 应用开发与功能交付，使用 AI 辅助实现，并亲自验证实际使用效果。</p>
     </div>
     <div class="strength-grid">
       <div class="glass strength hoverable" data-reveal style="transition-delay:.05s">
@@ -390,7 +400,7 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 7.5 12 12l9-4.5L12 3z"/><path d="m3 12 9 4.5 9-4.5"/><path d="m3 16.5 9 4.5 9-4.5"/></svg>
         </div>
         <h3>AI 平台工程化</h3>
-        <p>主导 AI-PPT 任务队列架构改造，实现高可用异步任务调度。围绕任务生命周期构建状态机、可靠性机制与质量保障，线上成功率稳定在 95% 以上。</p>
+        <p>参与 AI-PPT 功能迭代与生成稳定性改进，通过 AI 辅助开发、测试环境部署和刷新、断网等场景验证，跟进实际使用问题。</p>
       </div>
       <div class="glass strength hoverable" data-reveal style="transition-delay:.14s">
         <div class="ico">
@@ -415,7 +425,7 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
     <div class="sec-head" data-reveal>
       <div class="sec-kicker">WORK EXPERIENCE</div>
       <h2 class="sec-title">工作经历</h2>
-      <p class="sec-sub">独立交付 3 个上线产品，覆盖任务架构、可靠性设计、智能体编排与知识库工作流。</p>
+      <p class="sec-sub">参与 AI-PPT、学术翻译和知识库相关项目，推进 AI 辅助开发与功能验证。</p>
     </div>
 
     <div class="glass job-head" data-reveal>
@@ -430,16 +440,15 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
       <article class="glass proj hoverable" data-reveal>
         <div class="proj-head">
           <div class="proj-name">Agent-PPT <span class="badge">主力项目</span></div>
-          <a class="link" href="https://app.qinyanai.com" target="_blank" rel="noopener">app.qinyanai.com
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7m0 0H8m9 0v9"/></svg>
-          </a>
           <div class="proj-desc">对话式 AI 生成 PPT · 主力产品</div>
+          <div class="project-entry">
+            <a class="project-launch" href="https://app.qinyanai.com" target="_blank" rel="noopener" aria-label="打开 Agent PPT（新标签页）">打开 Agent PPT
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
+            </a>
+            <span class="project-domain">app.qinyanai.com</span>
+          </div>
         </div>
-        <ul>
-          <li>主导任务化架构改造：将 <b>SSE 直连</b>重构为 <b>Celery 独立队列 + 任务状态机（8 态流转）+ 页面级 checkpoint</b>，任务生命周期与浏览器连接解绑，线上成功率稳定在 <b>95%+</b></li>
-          <li>设计可靠性机制：worker 原子认领（数据库行锁 + 执行令牌防重）、stale 任务自动回收、请求幂等防重、导出前状态门禁，解决<b>重复扣费</b>与<b>半成品导出</b>问题</li>
-          <li>独立实现 v2/v3 智能体编排（前后端 <b>153 条提交</b>）：对话式 PPT 生成、分批流式大纲、页数增量合成、图片落版校验、VLM 视觉复核降级等质量保障机制</li>
-        </ul>
+        <ul><li>借助AI多轮分析并推进生成中刷新、断网后的恢复改进，部署测试环境并验证任务与内容能否恢复。</li><li>主动推进多任务生成优化，同时开启多个任务观察效果，并借助AI检查日志。</li><li>上线后关注用户反馈和后台情况，持续跟进问题；具体代码与技术方案主要由AI辅助完成。</li></ul><p style="margin:18px 0"><a class="link" href="./aippt-case.html">查看完整作品案例：问题、贡献与验证 →</a></p>
         <div class="proj-skills">
           <span class="mini-tag">Celery</span><span class="mini-tag">Redis</span><span class="mini-tag">MySQL</span><span class="mini-tag">任务状态机</span><span class="mini-tag">SSE</span><span class="mini-tag">多模型编排</span><span class="mini-tag">VLM 校验</span>
         </div>
@@ -448,10 +457,13 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
       <article class="glass proj hoverable" data-reveal>
         <div class="proj-head">
           <div class="proj-name">沁言学术翻译 <span class="badge">独立搭建</span></div>
-          <a class="link" href="https://translate.qinyanai.com" target="_blank" rel="noopener">translate.qinyanai.com
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7m0 0H8m9 0v9"/></svg>
-          </a>
           <div class="proj-desc">学术文档 AI 翻译 · 保版式 PDF 导出</div>
+          <div class="project-entry">
+            <a class="project-launch" href="https://translate.qinyanai.com" target="_blank" rel="noopener" aria-label="打开学术翻译（新标签页）">打开学术翻译
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
+            </a>
+            <span class="project-domain">translate.qinyanai.com</span>
+          </div>
         </div>
         <ul>
           <li>独立搭建翻译产品：保版式 <b>PDF 导出</b>、<b>512MB 大文档 OOM 防护</b>、双语对照、历史管理</li>
@@ -465,10 +477,13 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
       <article class="glass proj hoverable" data-reveal>
         <div class="proj-head">
           <div class="proj-name">中国移动湖南学术 Agent <span class="badge">负责搭建</span></div>
-          <a class="link" href="https://www.lingxixiangban.com" target="_blank" rel="noopener">www.lingxixiangban.com
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7m0 0H8m9 0v9"/></svg>
-          </a>
           <div class="proj-desc">学术问答 Agent · 多源检索</div>
+          <div class="project-entry">
+            <a class="project-launch" href="https://www.lingxixiangban.com" target="_blank" rel="noopener" aria-label="打开湘伴 Agent（新标签页）">打开湘伴 Agent
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
+            </a>
+            <span class="project-domain">www.lingxixiangban.com</span>
+          </div>
         </div>
         <ul>
           <li>负责学术 Agent 的搭建与交付：前后端及知识库工作流，聚合 <b>arXiv / PubMed / Google Scholar / 万方</b> 等多源学术库，最多 <b>5 库联合检索</b>、结果去重、用户权限校验</li>
@@ -481,50 +496,43 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
       </article>
     </div>
 
-    <div class="glass metrics" id="metrics" data-reveal>
-      <div class="metrics-title">关键数据</div>
-      <div class="metric-row">
-        <div class="stat">
-          <div class="label">线上成功率</div>
-          <div class="value num">95<span style="font-size:.45em;color:var(--text3);margin-left:4px">%+</span></div>
-          <div style="margin-top:14px;color:var(--text3);font-size:13px">任务队列高可用改造后稳定水平</div>
-        </div>
-        <div class="stat">
-          <div class="label">任务状态机</div>
-          <div class="value num">8<span style="font-size:.45em;color:var(--text3);margin-left:4px">态</span></div>
-          <div style="margin-top:14px;color:var(--text3);font-size:13px">全生命周期流转可控</div>
-        </div>
-        <div class="stat">
-          <div class="label">智能体编排提交</div>
-          <div class="value num">153<span style="font-size:.45em;color:var(--text3);margin-left:4px">条</span></div>
-          <div style="margin-top:14px;color:var(--text3);font-size:13px">v2/v3 前后端独立实现</div>
-        </div>
-        <div class="stat">
-          <div class="label">大文档防护</div>
-          <div class="value num">512<span style="font-size:.45em;color:var(--text3);margin-left:4px">MB</span></div>
-          <div style="margin-top:14px;color:var(--text3);font-size:13px">OOM 防护 · 保版式导出</div>
-        </div>
-      </div>
-    </div>
-
     <div class="side-head" data-reveal style="margin:34px 0 16px">
       <div class="sec-kicker">MORE SHIPPED</div>
       <h3 style="font-size:20px;font-weight:600">同期参与产品研发</h3>
     </div>
     <div class="side-grid">
       <div class="glass side hoverable" data-reveal>
-        <div class="side-title">沁言自传 · AI 自传创作平台</div>
+        <h3 class="side-title">沁言自传 · AI 自传创作平台</h3>
         <p>参与开发（前端方向）：协作 AI 自传创作平台的前端实现与联调。</p>
         <div class="proj-skills">
           <span class="mini-tag">前端开发</span><span class="mini-tag">协作联调</span>
         </div>
+        <a class="link" style="margin-top:12px" href="https://aiw.qinyanai.com/" target="_blank" rel="noopener" aria-label="打开沁言自传（新标签页）">打开沁言自传
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+        <span class="site-domain" style="display:block;font-size:12px;color:var(--text3);margin-top:5px">aiw.qinyanai.com</span>
       </div>
       <div class="glass side hoverable" data-reveal>
-        <div class="side-title">金榜数学 · AI 辅导平台</div>
+        <h3 class="side-title">金榜数学 · AI 辅导平台</h3>
         <p>参与开发（前端方向）：协作 AI 数学辅导平台的前端实现与联调。</p>
         <div class="proj-skills">
           <span class="mini-tag">前端开发</span><span class="mini-tag">协作联调</span>
         </div>
+        <a class="link" style="margin-top:12px" href="https://www.jbsdai.com/book/" target="_blank" rel="noopener" aria-label="打开金榜数学（新标签页）">打开金榜数学
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+        <span class="site-domain" style="display:block;font-size:12px;color:var(--text3);margin-top:5px">jbsdai.com/book</span>
+      </div>
+      <div class="glass side hoverable" data-reveal>
+        <h3 class="side-title">沁言官网 · 设计与前端开发</h3>
+        <p>负责官网页面设计与前端实现，迭代首页产品展示、学术支持与合作机构模块，并优化页面布局及图片加载。</p>
+        <div class="proj-skills">
+          <span class="mini-tag">Next.js</span><span class="mini-tag">React</span><span class="mini-tag">页面设计</span>
+        </div>
+        <a class="link" style="margin-top:12px" href="https://www.qinyanai.com/" target="_blank" rel="noopener" aria-label="访问沁言官网（新标签页）">访问沁言官网
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+        <span class="site-domain" style="display:block;font-size:12px;color:var(--text3);margin-top:5px">qinyanai.com</span>
       </div>
     </div>
 
@@ -750,5 +758,7 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
   onScroll();
 })();
 </script>
+<script src="./demo-config.js"></script>
+<script src="./demo-embed.js"></script>
 </body>
 </html>
