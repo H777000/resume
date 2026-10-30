@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>黄书磊 · AI 全栈开发工程师</title>
-<meta name="description" content="黄书磊 — AI 全栈开发工程师，专注于 AI 平台工程化、大模型应用与高可用异步架构。">
+<title>黄书磊 · AI产品作品集</title>
+<meta name="description" content="黄书磊的AI产品作品集：智能PPT、学术Agent、学术翻译与租好房。需求分析、产品方案、MVP与场景验证。求职方向：AI产品经理，北京。">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232997ff'/%3E%3Cstop offset='1' stop-color='%235e5ce6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%2307080f'/%3E%3Crect x='1' y='1' width='62' height='62' rx='13' fill='none' stroke='url(%23g)' stroke-width='2'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='30' font-weight='700' fill='url(%23g)' text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E">
 <style>
 
@@ -178,17 +178,14 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
 .proj{position:relative;margin-bottom:24px;padding:30px}
 .proj::before{content:"";position:absolute;left:-27px;top:36px;width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--cyan));box-shadow:0 0 0 4px rgba(0,102,204,.12),0 0 18px rgba(0,102,204,.4)}
 .proj-head{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
-.proj-name{font-size:clamp(19px,2.6vw,23px);font-weight:700;display:flex;align-items:center;flex-wrap:wrap;gap:10px}
-.project-entry{display:flex;align-items:center;flex-wrap:wrap;gap:9px 14px;margin-top:6px}
-.project-launch{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:44px;padding:9px 17px;border:1px solid rgba(0,102,204,.2);border-radius:999px;background:linear-gradient(135deg,rgba(255,255,255,.88),rgba(229,240,255,.72));-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);color:var(--accent);font-size:13px;font-weight:500;line-height:1.5;text-decoration:none;white-space:nowrap;box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 2px 6px rgba(29,29,31,.035);transition:background .2s,border-color .2s,box-shadow .2s,color .2s}
-.project-launch:hover{background:linear-gradient(135deg,rgba(245,250,255,.96),rgba(219,234,255,.86));border-color:rgba(0,102,204,.36);color:#0055ad;box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 4px 12px rgba(0,102,204,.08)}
-.project-launch:active{background:rgba(217,233,253,.9);box-shadow:inset 0 1px 3px rgba(0,80,160,.06)}
-.project-launch:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
-.project-launch svg{width:14px;height:14px;flex:none;opacity:.8;transition:transform .2s,opacity .2s}
-.project-launch:hover svg{transform:translate(1px,-1px);opacity:1}
-.project-domain{min-width:0;font-size:12px;line-height:1.5;color:var(--text2);overflow-wrap:anywhere}
-@media(prefers-reduced-motion:reduce){.project-launch,.project-launch svg{transition:none}.project-launch:hover svg{transform:none}}
-.badge{font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--accent);border:1px solid rgba(0,102,204,.35);background:rgba(0,102,204,.07);padding:4px 11px;border-radius:999px;white-space:nowrap}
+.proj-name{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 16px;font-size:clamp(24px,3vw,30px);font-weight:700;line-height:1.35;letter-spacing:-.025em}
+.project-title-link{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:0;border:0;background:none;box-shadow:none;color:var(--accent);text-decoration:none;transition:color .18s}
+.project-title-link .external-arrow{font-size:.65em;font-weight:400;color:var(--text2);transition:color .18s,transform .18s}
+.project-title-link:hover,.project-title-link:active,.project-title-link.is-activated{color:#004999}
+.project-title-link:hover .external-arrow,.project-title-link.is-activated .external-arrow{color:var(--accent);transform:translate(2px,-2px)}
+.project-title-link:focus-visible{color:var(--accent);outline:2px solid var(--accent);outline-offset:5px;border-radius:3px}
+.badge{font-size:12px;font-weight:400;letter-spacing:0;color:#696970;border:0;background:none;padding:0;line-height:1.6}
+@media(prefers-reduced-motion:reduce){.project-title-link,.external-arrow{transition:none!important}.project-title-link:hover .external-arrow{transform:none}}
 .link{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--text2);transition:color .3s}
 .link:hover{color:var(--accent)}
 .link svg{width:13px;height:13px;transition:transform .3s}
@@ -298,6 +295,19 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
   .skill-row .lv{flex:none}
 }
 
+
+/* AI product portfolio: case narratives with existing demos preserved. */
+:root{--text2:#555b66;--text3:#6c7280}
+body{font-weight:400}.hero{min-height:84svh;padding-top:116px;padding-bottom:60px}.hero-grid{gap:24px}.hero-intro{max-width:650px;font-size:18px;line-height:1.9;color:var(--text2)}
+.section{padding:78px 0 20px}.sec-head{margin-bottom:30px}section[id],article[id]{scroll-margin-top:90px}
+.project-index{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 26px}.project-index a{font-size:14px;border:1px solid var(--stroke2);background:var(--glass2);border-radius:99px;padding:10px 16px;color:var(--accent)}
+.proj-desc{color:#696970;font-size:14px;line-height:1.6}.proj strong,.proj b{color:var(--text);font-weight:600}
+.proj .product-flow{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px;padding:0}.proj .product-flow li{padding:6px 12px;background:#eaf2fb;color:#255a8d;border-radius:8px;font-size:12px;line-height:1.5}.proj .product-flow li::before{display:none}
+.case-notes{border-top:1px solid var(--stroke);margin-top:24px;padding-top:16px}.case-notes summary,.more-projects>summary{cursor:pointer;color:var(--accent);font-size:14px;font-weight:600;padding:6px 0}.case-content{padding-top:14px;max-width:850px}.case-content h4{font-size:14px;margin:16px 0 6px;color:var(--text)}.case-content p{font-size:14px;line-height:1.9;color:var(--text2)}.case-content h4:first-child{margin-top:0}
+.demo-scope{font-size:12px;line-height:1.8;color:var(--text2);margin:16px 0}.case-link{margin:18px 0 0}.case-link a{color:var(--accent)}.more-projects{padding:20px 26px;border:1px solid var(--stroke);border-radius:20px;background:var(--glass);margin:22px 0}.personal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.skill-row .lv{min-width:125px}.skill-row .chips{flex:1}.chips span{font-size:13px;padding:6px 12px}:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+@media(max-width:600px){.hero{min-height:auto;padding:112px 0 58px}.hero-intro{font-size:16px}.wrap{padding:0 20px}.section{padding-top:58px}.timeline{padding-left:0}.timeline::before,.proj::before{display:none}.proj{padding:24px 20px}.project-index a{font-size:12px;padding:9px 12px}.skill-row{padding:20px}.edu-card{padding:24px 20px}.edu-item{padding:22px 18px}.cta{padding-top:80px}.btn{padding:13px 22px}.hero-watermark{font-size:22vw}}
+
 </style>
 <link rel="stylesheet" href="./demo-embed.css" media="print" onload="this.media='all'">
 </head>
@@ -315,11 +325,11 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
   <div class="nav-inner">
     <a class="brand" href="#top"><span class="dot">H</span>黄书磊</a>
     <div class="nav-links">
+      <a href="#experience">项目经历</a>
       <a href="#strength">核心优势</a>
-      <a href="#experience">工作经历</a>
-      <a href="#skills">相关技能</a>
-      <a href="#education">教育经历</a>
-      <a href="https://h777000.github.io/resume/portfolio/" target="_blank" rel="noopener">作品集</a>
+      <a href="#skills">产品能力</a>
+      <a href="#education">教育与实践</a>
+      <a href="#project-ppt">在线体验</a>
     </div>
     <a class="nav-cta" href="#contact">联系我</a>
   </div>
@@ -336,9 +346,9 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
       </div>
       <h1 class="hero-name">黄书磊</h1>
     </div>
-    <p class="hero-role">AI 全栈开发工程师 · <b>平台工程化</b></p>
+    <p class="hero-role">求职方向：<b>AI产品经理 · 应用方向</b></p><p class="hero-intro">从用户问题出发，把AI能力转化为可用的产品。<br>关注需求拆解、产品方案、交互体验与验证迭代。</p>
     <div class="hero-tags" data-in="tags">
-      <span class="tag">Python</span><span class="tag">大模型工程化</span><span class="tag">RAG</span><span class="tag">异步架构</span><span class="tag">智能体编排</span>
+      <span class="tag">需求与PRD</span><span class="tag">Agent / RAG</span><span class="tag">原型与MVP</span><span class="tag">场景验收</span>
     </div>
     <div class="hero-chips" data-in="chips">
       <a class="chip tel" href="tel:17744810952">
@@ -355,145 +365,33 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
       </button>
       <span class="chip" style="background:rgba(29,29,31,.04);border:1px solid var(--stroke)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-        23 岁 · 北京
+        北京 · 本科
       </span>
     </div>
     <div class="hero-actions" data-in="actions">
-      <a class="btn primary" href="https://h777000.github.io/resume/portfolio/" target="_blank" rel="noopener">
+      <a class="btn primary" href="#experience">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5m0 14h16"/><path d="m9 15 3-4 3 3 2-3"/></svg>
-        查看作品集
+        查看项目与体验
       </a>
-      <a class="btn ghost" href="#strength">
+      <a class="btn ghost" href="#contact">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v14"/><path d="m6 10 6 6 6-6"/></svg>
-        了解更多
+        联系我
       </a>
     </div>
   </div>
-  <a class="scroll-hint" href="#strength" aria-label="向下滚动">
+  <a class="scroll-hint" href="#experience" aria-label="向下滚动">
     <span class="mouse"></span>
     <span>SCROLL</span>
   </a>
 </header>
 
 <div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span>Python<i>·</i>Django<i>·</i>Celery<i>·</i>Redis<i>·</i>MySQL<i>·</i>SSE<i>·</i>FastAPI<i>·</i>RAG<i>·</i>Docker<i>·</i>Git<i>·</i>GitLab<i>·</i>飞书<i>·</i>任务状态机<i>·</i>异步架构<i>·</i></span>
-    <span>Python<i>·</i>Django<i>·</i>Celery<i>·</i>Redis<i>·</i>MySQL<i>·</i>SSE<i>·</i>FastAPI<i>·</i>RAG<i>·</i>Docker<i>·</i>Git<i>·</i>GitLab<i>·</i>飞书<i>·</i>任务状态机<i>·</i>异步架构<i>·</i></span>
-  </div>
+  <div class="marquee-track"><span>用户需求 · 产品方案 · PRD · 交互原型 · Prompt · Agent · RAG · MVP · Bad Case · 场景验收 · </span><span>用户需求 · 产品方案 · PRD · 交互原型 · Prompt · Agent · RAG · MVP · Bad Case · 场景验收 · </span></div>
 </div>
 
-<section class="section" id="strength">
-  <div class="wrap">
-    <div class="sec-head" data-reveal>
-      <div class="sec-kicker">CORE STRENGTHS</div>
-      <h2 class="sec-title">核心优势</h2>
-      <p class="sec-sub">参与 AI 应用开发与功能交付，使用 AI 辅助实现，并亲自验证实际使用效果。</p>
-    </div>
-    <div class="strength-grid">
-      <div class="glass strength hoverable" data-reveal style="transition-delay:.05s">
-        <div class="ico">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 7.5 12 12l9-4.5L12 3z"/><path d="m3 12 9 4.5 9-4.5"/><path d="m3 16.5 9 4.5 9-4.5"/></svg>
-        </div>
-        <h3>AI 平台工程化</h3>
-        <p>参与 AI-PPT 功能迭代与生成稳定性改进，通过 AI 辅助开发、测试环境部署和刷新、断网等场景验证，跟进实际使用问题。</p>
-      </div>
-      <div class="glass strength hoverable" data-reveal style="transition-delay:.14s">
-        <div class="ico">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v2m0 14v2M5.6 5.6l1.4 1.4m10 10 1.4 1.4M3 12h2m14 0h2M5.6 18.4l1.4-1.4m10-10 1.4-1.4"/><circle cx="12" cy="12" r="4"/></svg>
-        </div>
-        <h3>大模型应用闭环</h3>
-        <p>熟悉大模型 API 工程化、RAG 检索、SSE 流式输出，具备从需求分析到上线交付的完整闭环能力，独立搭建过翻译与学术问答产品。</p>
-      </div>
-      <div class="glass strength hoverable" data-reveal style="transition-delay:.23s">
-        <div class="ico">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/><path d="M13 17a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4z"/><path d="M9 11v1a3 3 0 0 0 3 3h1"/></svg>
-        </div>
-        <h3>智能体编排</h3>
-        <p>独立实现 v2/v3 智能体编排：对话式 PPT 生成、分批流式大纲、图片落版校验与 VLM 视觉复核降级等质量保障机制。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="experience">
-  <div class="wrap">
-    <div class="sec-head" data-reveal>
-      <div class="sec-kicker">WORK EXPERIENCE</div>
-      <h2 class="sec-title">工作经历</h2>
-      <p class="sec-sub">参与 AI-PPT、学术翻译和知识库相关项目，推进 AI 辅助开发与功能验证。</p>
-    </div>
-
-    <div class="glass job-head" data-reveal>
-      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-        <span class="co">北京简圣科技有限公司</span>
-      </div>
-      <div class="role">AI 全栈开发工程师</div>
-      <div class="period"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>2026.4 — 2026.10 · 北京</div>
-    </div>
-
-    <div class="timeline">
-      <article class="glass proj hoverable" data-reveal>
-        <div class="proj-head">
-          <div class="proj-name">Agent-PPT <span class="badge">主力项目</span></div>
-          <div class="proj-desc">对话式 AI 生成 PPT · 主力产品</div>
-          <div class="project-entry">
-            <a class="project-launch" href="https://app.qinyanai.com" target="_blank" rel="noopener" aria-label="打开 Agent PPT（新标签页）">打开 Agent PPT
-              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
-            </a>
-            <span class="project-domain">app.qinyanai.com</span>
-          </div>
-        </div>
-        <ul><li>借助AI多轮分析并推进生成中刷新、断网后的恢复改进，部署测试环境并验证任务与内容能否恢复。</li><li>主动推进多任务生成优化，同时开启多个任务观察效果，并借助AI检查日志。</li><li>上线后关注用户反馈和后台情况，持续跟进问题；具体代码与技术方案主要由AI辅助完成。</li></ul><p style="margin:18px 0"><a class="link" href="./aippt-case.html">查看完整作品案例：问题、贡献与验证 →</a></p>
-        <div class="proj-skills">
-          <span class="mini-tag">Celery</span><span class="mini-tag">Redis</span><span class="mini-tag">MySQL</span><span class="mini-tag">任务状态机</span><span class="mini-tag">SSE</span><span class="mini-tag">多模型编排</span><span class="mini-tag">VLM 校验</span>
-        </div>
-      </article>
-
-      <article class="glass proj hoverable" data-reveal>
-        <div class="proj-head">
-          <div class="proj-name">沁言学术翻译 <span class="badge">独立搭建</span></div>
-          <div class="proj-desc">学术文档 AI 翻译 · 保版式 PDF 导出</div>
-          <div class="project-entry">
-            <a class="project-launch" href="https://translate.qinyanai.com" target="_blank" rel="noopener" aria-label="打开学术翻译（新标签页）">打开学术翻译
-              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
-            </a>
-            <span class="project-domain">translate.qinyanai.com</span>
-          </div>
-        </div>
-        <ul>
-          <li>独立搭建翻译产品：保版式 <b>PDF 导出</b>、<b>512MB 大文档 OOM 防护</b>、双语对照、历史管理</li>
-          <li>深度研究功能：基于 Redis 的 <b>SSE 流断点续传</b>，结算加固（先持久化后扣费、防重扣）</li>
-        </ul>
-        <div class="proj-skills">
-          <span class="mini-tag">FastAPI</span><span class="mini-tag">Redis</span><span class="mini-tag">SSE 续传</span><span class="mini-tag">PDF 保版式</span><span class="mini-tag">结算防重</span>
-        </div>
-      </article>
-
-      <article class="glass proj hoverable" data-reveal>
-        <div class="proj-head">
-          <div class="proj-name">中国移动湖南学术 Agent <span class="badge">负责搭建</span></div>
-          <div class="proj-desc">学术问答 Agent · 多源检索</div>
-          <div class="project-entry">
-            <a class="project-launch" href="https://www.lingxixiangban.com" target="_blank" rel="noopener" aria-label="打开湘伴 Agent（新标签页）">打开湘伴 Agent
-              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
-            </a>
-            <span class="project-domain">www.lingxixiangban.com</span>
-          </div>
-        </div>
-        <ul>
-          <li>负责学术 Agent 的搭建与交付：前后端及知识库工作流，聚合 <b>arXiv / PubMed / Google Scholar / 万方</b> 等多源学术库，最多 <b>5 库联合检索</b>、结果去重、用户权限校验</li>
-          <li>检索链路优化：多源 <b>7 天缓存</b>降本提速、<b>文献质量评分排序</b>、领域过滤与自动翻译</li>
-          <li>异常与并发：会话排队、请求去重、额度分级错误处理，完善异常状态与用户隔离</li>
-        </ul>
-        <div class="proj-skills">
-          <span class="mini-tag">FastAPI</span><span class="mini-tag">RAG</span><span class="mini-tag">学术库聚合</span><span class="mini-tag">文献评分</span><span class="mini-tag">权限校验</span><span class="mini-tag">并发防护</span>
-        </div>
-      </article>
-    </div>
-
-    <div class="side-head" data-reveal style="margin:34px 0 16px">
+<section class="section" id="experience"><div class="wrap"><div class="sec-head"><div class="sec-kicker">SELECTED PROJECTS</div><h2 class="sec-title">项目经历</h2><p class="sec-sub">三个企业AI应用项目，一项0→1个人作品。围绕用户问题，展示方案设计、功能落地与验证过程。</p></div><nav class="project-index" aria-label="项目快速导航"><a href="#project-ppt">01 智能PPT</a><a href="#project-translate">02 学术翻译</a><a href="#project-agent">03 中国移动湖南 Agent</a><a href="#project-rental">04 租好房</a></nav><div class="timeline"><article class="glass proj" id="project-ppt"><div class="proj-head"><h3 class="proj-name"><a class="project-title-link" href="https://app.qinyanai.com" target="_blank" rel="noopener" aria-label="打开Agent PPT（新标签页）">Agent PPT<span class="external-arrow" aria-hidden="true">↗</span></a><span class="badge">企业项目</span></h3><p class="proj-desc">对话式AI生成 · 生成体验与任务恢复</p></div><ol class="product-flow" aria-label="产品使用流程"><li>主题与资料</li><li>内容准备</li><li>逐页生成</li><li>预览与交付</li></ol><ul><li><b>需求分析：</b>梳理输入、大纲、生成与交付链路，拆解<b>页数控制、进度反馈与任务恢复</b>需求，覆盖刷新、断网及多任务场景。</li><li><b>产品策略：</b>参与<b>Agent编排与质量门禁</b>迭代，结合Prompt、JSON Schema、页数校验、VLM复核及异常降级，完善生成流程。</li><li><b>交互验收：</b>部署测试环境，基于<b>状态机、SSE及页面级checkpoint</b>验证恢复与隔离；跟进Bad Case修复，复盘整理PRD、原型及验收用例。</li></ul><p class="demo-scope">本页提供核心流程演示；企业项目的完整功能可通过上方产品入口查看。</p><div class="proj-skills"><span class="mini-tag">Agent工作流</span><span class="mini-tag">JSON Schema</span><span class="mini-tag">VLM复核</span><span class="mini-tag">任务恢复</span><span class="mini-tag">Bad Case</span></div><p class="case-link"><a class="link" href="./aippt-case.html">阅读完整项目复盘 →</a></p><details class="case-notes"><summary>展开产品思考与验证</summary><div class="case-content"><h4>产品问题</h4><p>生成过程较长，用户刷新、断网或同时操作多个任务时，需要知道任务是否继续、内容能否保留、回来后如何恢复。</p><h4>方案取舍</h4><p>将页面连接与后台任务分开管理，通过任务编号、页面保存与状态反馈承接长任务体验；对模型输出增加格式与质量检查，降低错误继续传递到后续步骤的风险。</p><h4>我的实践与验证</h4><p>参与功能迭代，借助AI辅助分析日志，部署测试环境，开展刷新、重连及多任务场景验证并跟进复验。PRD与原型为基于实际项目补充的复盘作品。</p></div></details></article><article class="glass proj" id="project-translate"><div class="proj-head"><h3 class="proj-name"><a class="project-title-link" href="https://translate.qinyanai.com" target="_blank" rel="noopener" aria-label="打开沁言学术翻译（新标签页）">沁言学术翻译<span class="external-arrow" aria-hidden="true">↗</span></a><span class="badge">企业项目</span></h3><p class="proj-desc">学术文档翻译 · 双语阅读与版式保真</p></div><ol class="product-flow" aria-label="产品使用流程"><li>上传文档</li><li>翻译处理</li><li>双语阅读</li><li>PDF导出</li></ol><ul><li><b>需求洞察：</b>围绕<b>术语一致性、公式引用保留与版式保真</b>，梳理上传、翻译、阅读和导出链路，落实双语对照、历史管理及PDF交付。</li><li><b>AI产品方案：</b>结合<b>System Prompt、术语库注入与风格控制</b>，明确目标语言、段落对齐及原文保护规则，约束模型行为边界。</li><li><b>迭代验收：</b>借助AI Coding推进功能落地，以<b>处理阶段与段落完成量</b>反馈进度，完善异常提示；围绕公式、表格及参考文献细化验收检查点。</li></ul><p class="demo-scope">本页演示文本与文档翻译；企业版的保版式PDF等功能请通过上方产品入口查看。</p><div class="proj-skills"><span class="mini-tag">Prompt约束</span><span class="mini-tag">术语库</span><span class="mini-tag">版式保真</span><span class="mini-tag">进度反馈</span><span class="mini-tag">文档交付</span></div><details class="case-notes"><summary>展开产品思考与验证</summary><div class="case-content"><h4>产品问题</h4><p>学术翻译不仅需要译文可读，还需要保留公式、引用与文档结构，让用户可以对照阅读并继续使用导出的文件。</p><h4>方案取舍</h4><p>通过提示词与术语规则限制模型偏离翻译任务；结合文档处理规则保护学术标记。进度反馈以实际处理阶段和段落完成情况为依据，避免用计时动画制造已接近完成的错觉。</p><h4>交付检查</h4><p>关注双语阅读、历史记录和保版式导出；围绕公式、表格、参考文献及中文排版检查交付结果，并完善长文档和处理失败场景。</p></div></details></article><article class="glass proj" id="project-agent"><div class="proj-head"><h3 class="proj-name"><a class="project-title-link" href="https://www.lingxixiangban.com" target="_blank" rel="noopener" aria-label="打开中国移动湖南 Agent（新标签页）">中国移动湖南 Agent<span class="external-arrow" aria-hidden="true">↗</span></a><span class="badge">中国移动合作项目 · FDE 私有化部署</span></h3><p class="proj-desc">面向大学生的学术助手 · 私有化交付</p></div><ol class="product-flow" aria-label="产品使用流程"><li>资料检索</li><li>去重与筛选</li><li>辅助阅读</li><li>结果呈现</li></ol><ul><li><b>需求分析：</b>面向大学生资料检索与外文阅读，拆解<b>多库检索、去重排序、领域过滤及翻译</b>需求，明确权限与额度规则。</li><li><b>产品方案：</b>参与<b>Agent与RAG工作流</b>设计，支持最多<b>5库联合检索</b>，梳理节点输入输出、异常分支及交互反馈。</li><li><b>集成交付：</b>借助AI Coding推进接口联调与<b>FastAPI＋Qdrant私有化部署</b>，结合日志跟进排队、重复请求及额度异常处理。</li></ul><div class="proj-skills"><span class="mini-tag">RAG</span><span class="mini-tag">5库联合检索</span><span class="mini-tag">权限与额度</span><span class="mini-tag">异常反馈</span><span class="mini-tag">私有化部署</span></div><details class="case-notes"><summary>展开产品思考与验证</summary><div class="case-content"><h4>合作方与最终用户</h4><p>湖南移动是合作方，大学生是最终用户。方案既要支持资料查找与阅读，也需要适配合作项目的部署条件、访问权限与使用额度。</p><h4>功能与规则</h4><p>通过联合检索、去重排序、领域过滤和翻译串联资料获取流程；区分排队、额度不足等业务状态与接口或系统异常，给用户明确的状态反馈。</p><h4>我的参与</h4><p>参与工作流搭建、功能实现与接口联调，支持私有化部署，跟进检索、会话与权限相关问题。</p></div></details></article><article class="glass proj" id="project-rental"><div class="proj-head"><h3 class="proj-name"><a class="project-title-link" href="https://bind-relate-sensor-times.trycloudflare.com/" target="_blank" rel="noopener" aria-label="打开租好房（新标签页）">租好房<span class="external-arrow" aria-hidden="true">↗</span></a><span class="badge">个人作品</span></h3><p class="proj-desc">房东直租信息平台 · 产品设计与AI辅助开发</p></div><ol class="product-flow" aria-label="产品使用流程"><li>房东发布 / 租客求租</li><li>浏览与搜索</li><li>直接沟通</li><li>审核与举报</li></ol><ul><li><b>需求与产品设计：</b>聚焦中介费用与筛选成本，定位<b>房东直租平台</b>；划定MVP范围，设计房源、求租双入口及发布、搜索、沟通路径。</li><li><b>业务规则：</b>设计<b>发布审核、举报去重与有效违规认定</b>，将累计举报即封禁调整为审核确认后处罚，减少重复举报导致的误判风险。</li><li><b>开发验证：</b>使用<b>Codex＋React/TypeScript＋Node.js</b>完成Demo与数据持久化，根据接入成本选择邮箱验证，跑通公网注册、邮件收码与登录。</li></ul><div class="proj-skills"><span class="mini-tag">0→1个人实践</span><span class="mini-tag">MVP</span><span class="mini-tag">信息架构</span><span class="mini-tag">内容治理</span><span class="mini-tag">真实邮箱验证</span></div><p class="case-link"><a class="link" href="mailto:h123577@163.com?subject=租好房项目交流">联系我交流产品与演示 →</a></p><details class="case-notes"><summary>展开产品思考与验证</summary><div class="case-content"><h4>为什么做</h4><p>希望提供简洁的直租信息入口，让个人房东与租客直接沟通，减少寻找直租房源的信息筛选成本。房源真实性仍需要核验与运营机制支撑。</p><h4>两项产品取舍</h4><p><b>账号验证：</b>根据接入成本与开发条件，从短信方案调整为邮箱验证码，先验证账号流程。<br><b>举报处罚：</b>从累计举报直接处罚，调整为去重、审核确认有效违规后再处理，设定累计三次有效违规封禁规则。</p><h4>当前进展</h4><p>已完成可交互Demo、数据持久化及公网真实邮箱注册登录验证。可通过标题进入公网试用；尚未将成交量或用户增长作为已验证成果。</p></div></details></article></div><details class="more-projects"><summary>更多产品与开源实践</summary>    <div class="side-head" data-reveal style="margin:34px 0 16px">
       <div class="sec-kicker">MORE SHIPPED</div>
-      <h3 style="font-size:20px;font-weight:600">同期参与产品研发</h3>
+      <h3 style="font-size:20px;font-weight:600">其他产品实践</h3>
     </div>
     <div class="side-grid">
       <div class="glass side hoverable" data-reveal>
@@ -533,7 +431,7 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
 
     <div class="side-head" data-reveal style="margin:34px 0 16px">
       <div class="sec-kicker">PERSONAL PROJECTS</div>
-      <h3 style="font-size:20px;font-weight:600">个人开源项目</h3>
+      <h3 style="font-size:20px;font-weight:600">工具与开源实践</h3>
     </div>
     <div class="personal-grid">
       <div class="glass side hoverable" data-reveal>
@@ -567,44 +465,46 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
         </a>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="section" id="skills">
+</details></div></section>
+<section class="section" id="strength">
   <div class="wrap">
     <div class="sec-head" data-reveal>
-      <div class="sec-kicker">SKILLS</div>
-      <h2 class="sec-title">相关技能</h2>
-      <p class="sec-sub">主力技术深入生产环境，其余按熟悉与了解分层持续扩展。</p>
+      <div class="sec-kicker">CORE STRENGTHS</div>
+      <h2 class="sec-title">核心优势</h2>
+      <p class="sec-sub">用产品方法拆解问题，用AI工具验证方案，用真实项目积累交付经验。</p>
     </div>
-    <div class="skill-group" data-reveal>
-      <div class="skill-row lv-main">
-        <div class="lv main"><span class="bar-dot"></span>主力</div>
-        <div class="chips">
-          <span>Python</span><span>Django</span><span>Celery</span><span>MySQL</span><span>Redis</span><span>SSE</span><span>任务状态机</span><span>异步架构</span>
+    <div class="strength-grid">
+      <div class="glass strength hoverable" data-reveal style="transition-delay:.05s">
+        <div class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 7.5 12 12l9-4.5L12 3z"/><path d="m3 12 9 4.5 9-4.5"/><path d="m3 16.5 9 4.5 9-4.5"/></svg>
         </div>
+        <h3>产品思维</h3>
+        <p>围绕用户问题梳理核心链路、业务规则与异常场景，结合模型能力和实现成本，推进MVP规划与产品迭代。</p>
       </div>
-      <div class="skill-row">
-        <div class="lv fam"><span class="bar-dot"></span>熟悉</div>
-        <div class="chips">
-          <span>FastAPI</span><span>RAG</span><span>Docker</span><span>Git</span><span>RESTful API</span>
+      <div class="glass strength hoverable" data-reveal style="transition-delay:.14s">
+        <div class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v2m0 14v2M5.6 5.6l1.4 1.4m10 10 1.4 1.4M3 12h2m14 0h2M5.6 18.4l1.4-1.4m10-10 1.4-1.4"/><circle cx="12" cy="12" r="4"/></svg>
         </div>
+        <h3>原型与AI工具</h3>
+        <p>使用Figma表达交互方案、飞书整理PRD；借助Cursor、Claude Code和Codex搭建可交互Demo，将需求推进到可验证的功能。</p>
       </div>
-      <div class="skill-row">
-        <div class="lv know"><span class="bar-dot"></span>工具与协作</div>
-        <div class="chips">
-          <span>GitLab</span><span>飞书</span>
+      <div class="glass strength hoverable" data-reveal style="transition-delay:.23s">
+        <div class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/><path d="M13 17a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4z"/><path d="M9 11v1a3 3 0 0 0 3 3h1"/></svg>
         </div>
+        <h3>协作与项目推进</h3>
+        <p>具备团队组织和AI项目交付实践，围绕需求对齐、接口联调、场景验收与问题跟进，协同推进功能落地。</p>
       </div>
     </div>
   </div>
 </section>
 
+<section class="section" id="skills"><div class="wrap"><div class="sec-head"><div class="sec-kicker">PRODUCT CAPABILITIES</div><h2 class="sec-title">核心技能</h2><p class="sec-sub">需求与方案、原型与验证、协作与交付。</p></div><div class="skill-group"><div class="skill-row"><div class="lv">产品方法与工具</div><div class="chips"><span>需求分析</span><span>竞品分析</span><span>优先级规划</span><span>PRD</span><span>Figma</span><span>用户流程</span><span>信息架构</span><span>交互原型</span></div></div><div class="skill-row"><div class="lv">AI产品能力</div><div class="chips"><span>Prompt分层设计</span><span>JSON Schema</span><span>RAG</span><span>Agent工作流</span><span>LangChain（了解）</span><span>Skill模块化（了解）</span></div></div><div class="skill-row"><div class="lv">原型与验证</div><div class="chips"><span>Cursor</span><span>Claude Code</span><span>Codex</span><span>MVP</span><span>Demo</span><span>Bad Case</span><span>场景验收</span><span>回归验证</span></div></div><div class="skill-row"><div class="lv">技术与交付</div><div class="chips"><span>Python / React / FastAPI项目实践</span><span>Git / GitLab</span><span>接口联调</span><span>Docker</span><span>私有化部署</span></div></div></div></div></section>
 <section class="section" id="education">
   <div class="wrap">
     <div class="sec-head" data-reveal>
       <div class="sec-kicker">EDUCATION</div>
-      <h2 class="sec-title">教育经历</h2>
+      <h2 class="sec-title">教育与运营实践</h2>
     </div>
     <div class="glass edu-card" data-reveal>
       <div class="edu-top">
@@ -631,6 +531,7 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
           <p>牵头 3 人团队设计商业模式，完成 2 次校方国资合规申报。</p>
           <div class="mini"><span class="mini-tag">3 人团队</span><span class="mini-tag">2 次国资合规申报</span></div>
         </div>
+<div class="edu-item"><h4>自习室运营</h4><p>负责门店日常运营与用户服务，推进美团上架及渠道获客，积累线上推广与线下服务经验。</p><div class="mini"><span class="mini-tag">门店运营</span><span class="mini-tag">用户服务</span></div></div>
       </div>
     </div>
   </div>
@@ -638,12 +539,12 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
 
 <section class="cta" id="contact">
   <div class="wrap">
-    <h2 class="cta-title" data-reveal>一起做点有意思的事</h2>
-    <p class="cta-sub" data-reveal style="transition-delay:.1s">AI 平台工程化 · 大模型应用 · 高可用架构 —— 欢迎联系，随时可以开始一段新项目。</p>
+    <h2 class="cta-title" data-reveal>聊聊下一个AI产品</h2>
+    <p class="cta-sub" data-reveal style="transition-delay:.1s">寻找 AI 产品相关机会 · 北京<br>欢迎交流产品方案、项目实践与岗位需求。</p>
     <div class="cta-btns" data-reveal style="transition-delay:.2s">
-      <a class="btn primary" href="https://h777000.github.io/resume/portfolio/" target="_blank" rel="noopener">
+      <a class="btn primary" href="#experience">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5m0 14h16"/><path d="m9 15 3-4 3 3 2-3"/></svg>
-        查看作品集
+        查看项目与体验
       </a>
       <a class="btn primary" href="tel:17744810952">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>
@@ -660,7 +561,7 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
     </div>
     <div class="footer">
       <div class="f-name">黄书磊</div>
-      <div class="f-line">© 2026 黄书磊 · AI 全栈开发工程师 · 北京</div>
+      <div class="f-line">© 2026 黄书磊 · AI产品作品集 · 北京</div>
       <div class="f-line">
         <a href="https://app.qinyanai.com" target="_blank" rel="noopener">app.qinyanai.com</a> ·
         <a href="https://translate.qinyanai.com" target="_blank" rel="noopener">translate.qinyanai.com</a> ·
@@ -698,6 +599,14 @@ button.chip{cursor:pointer;font-family:inherit;font-size:14px;color:var(--text)}
     prog.style.transform = "scaleX(" + (max > 0 ? Math.min(1, y / max) : 0) + ")";
   }
   function onScroll(){ if(!scrollFrame) scrollFrame = requestAnimationFrame(updateScroll); }
+
+  /* 标题即入口：保留原生链接行为，点击后高亮已打开的项目。 */
+  document.querySelectorAll('.project-title-link').forEach(function(link){
+    link.addEventListener('click',function(){
+      document.querySelectorAll('.project-title-link').forEach(function(item){item.classList.remove('is-activated');});
+      link.classList.add('is-activated');
+    });
+  });
 
   /* 微信二维码 */
   var wm = document.getElementById("wechatModal");
