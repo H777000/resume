@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>黄书磊 · 作品集</title>
-<meta name="description" content="黄书磊的作品集 — Agent-PPT 与沁言学术翻译两个上线 AI 产品的完整复盘。">
+<title>黄书磊 · AI产品案例与交互演示</title>
+<meta name="description" content="黄书磊的AI产品作品集：智能PPT、学术翻译、湘伴Agent与租好房，展示需求、方案、产品取舍与验证实践。">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232997ff'/%3E%3Cstop offset='1' stop-color='%235e5ce6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%2307080f'/%3E%3Crect x='1' y='1' width='62' height='62' rx='13' fill='none' stroke='url(%23g)' stroke-width='2'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='30' font-weight='700' fill='url(%23g)' text-anchor='middle'%3EW%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+SC:wght@100;200;300;400;500;600;700;900&display=swap">
 <style>
@@ -318,6 +318,10 @@ textarea.demo-input{resize:vertical;min-height:86px;line-height:1.7}
   .bi{grid-template-columns:1fr}
   .try-tabs{flex-direction:column}
 }
+
+/* Product case content; preserve demo controls and IDs. */
+:root{--text2:#555b66;--text3:#6c7280}body{font-weight:400}.hero{min-height:78svh}.section{padding:70px 0 16px}section[id]{scroll-margin-top:90px}.hero-role{max-width:760px;line-height:1.8}.product-notes{display:grid;gap:20px}.product-notes h3{font-size:16px;margin:0 0 8px}.product-notes p,.skill-band p{font-size:15px;color:var(--text2);line-height:1.9}.product-notes b{color:var(--text);font-weight:600}.ov-desc{line-height:1.8}.before-after p{line-height:1.9}.proj-hero{gap:24px}:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+@media(max-width:600px){.hero{min-height:auto;padding:120px 0 60px}.hero-title{font-size:64px}.hero-role{font-size:17px}.proj-hero{padding:28px 22px}.proj-title-row{flex-wrap:wrap}.section{padding-top:52px}.btn{padding:12px 20px}.demo-io{min-width:0}.demo-input{min-width:0;max-width:100%}.proj-title{font-size:28px}.ba-card{padding:24px 20px}}
 </style>
 </head>
 <body>
@@ -334,8 +338,8 @@ textarea.demo-input{resize:vertical;min-height:86px;line-height:1.7}
     <a class="brand" href="#top"><span class="dot">W</span>黄书磊 · 作品集</a>
     <div class="nav-links">
       <a href="#overview">项目</a>
-      <a href="#agentppt">Agent-PPT</a>
-      <a href="#translate">沁言翻译</a>
+      <a href="#try">交互演示</a>
+      <a href="#skills">产品能力</a>
       <a href="https://h777000.github.io/resume/huangshulei/" target="_blank" rel="noopener">个人简历</a>
     </div>
     <a class="nav-cta" href="#contact">联系我</a>
@@ -347,9 +351,9 @@ textarea.demo-input{resize:vertical;min-height:86px;line-height:1.7}
   <div class="wrap hero-grid">
     <div class="hero-badge" data-in="b">PORTFOLIO · 作品集</div>
     <h1 class="hero-title" data-in="t">作品集</h1>
-    <p class="hero-role" data-in="r">亲手做过、上线在跑的 <b>AI 产品</b> —— 不只是简历上的文字，而是能点开就用的实物。</p>
+    <p class="hero-role" data-in="r"><b>AI产品经理 · 应用方向</b><br>从用户需求到产品方案，从可交互原型到场景验证。</p>
     <div class="hero-tags" data-in="s">
-      <span class="tag">Agent-PPT</span><span class="tag">沁言翻译</span><span class="tag">真实上线</span><span class="tag">可直接体验</span>
+      <span class="tag">需求与PRD</span><span class="tag">Agent与RAG</span><span class="tag">MVP与交互</span><span class="tag">验证与迭代</span>
     </div>
   </div>
   <a class="scroll-hint" href="#overview" aria-label="向下滚动">
@@ -358,13 +362,13 @@ textarea.demo-input{resize:vertical;min-height:86px;line-height:1.7}
   </a>
 </header>
 
-<!-- ===== 即时体验 ===== -->
+<section class="section" id="overview"><div class="wrap"><div class="sec-head"><div class="sec-kicker">SELECTED PROJECTS</div><h2 class="sec-title">四个项目，四种产品问题</h2><p class="sec-sub">三个企业AI应用项目，一项个人作品。展示用户场景、产品方案、实现取舍与验证实践。</p></div><div class="overview-grid"><a class="glass ov-card hoverable" href="#agentppt"><div class="ov-num num">01</div><div class="ov-top"><span class="ov-name">Agent PPT</span><span class="badge">企业项目</span></div><p class="ov-desc">对话式生成 · 任务恢复与交互反馈</p><span class="ov-go">查看产品案例 →</span></a><a class="glass ov-card hoverable" href="#translate"><div class="ov-num num">02</div><div class="ov-top"><span class="ov-name">沁言学术翻译</span><span class="badge">企业项目</span></div><p class="ov-desc">学术阅读 · 双语对照与文档交付</p><span class="ov-go">查看产品案例 →</span></a><a class="glass ov-card hoverable" href="#xiangban"><div class="ov-num num">03</div><div class="ov-top"><span class="ov-name">湘伴学术Agent</span><span class="badge">湖南移动合作项目</span></div><p class="ov-desc">大学生学术检索 · 私有化交付</p><span class="ov-go">查看产品案例 →</span></a><a class="glass ov-card hoverable" href="#rental"><div class="ov-num num">04</div><div class="ov-top"><span class="ov-name">租好房</span><span class="badge">个人作品</span></div><p class="ov-desc">房东直租平台 · 0→1产品实践</p><span class="ov-go">查看产品案例 →</span></a></div></div></section><!-- ===== 即时体验 ===== -->
 <section class="section" id="try">
   <div class="wrap">
     <div class="sec-head try-head" data-reveal>
-      <div class="sec-kicker">LIVE DEMO · 即时体验</div>
-      <h2 class="sec-title">在页面上直接试用</h2>
-      <p class="sec-sub">三个演示舱，走一遍产品的核心流程——不需要登录、不需要 API，打开就能玩。完整功能请打开线上产品体验。</p>
+      <div class="sec-kicker">INTERACTIVE DEMO · 交互演示</div>
+      <h2 class="sec-title">体验产品交互流程</h2>
+      <p class="sec-sub">以下为前端模拟演示，展示交互与流程，不调用大模型、不执行真实检索。真实功能可通过各项目的产品入口访问。</p>
     </div>
     <div class="glass demo-box" data-reveal>
       <div class="try-tabs" id="tryTabs">
@@ -383,7 +387,7 @@ textarea.demo-input{resize:vertical;min-height:86px;line-height:1.7}
       </div>
 
       <div class="demo-panel active" id="p1">
-        <p class="demo-intro">输入一个主题，走一遍 Agent-PPT 的 8 态生成流程：任务提交 → 队列排队 → 原子认领 → 流式生成 → 图片落版 → VLM 校验 → 导出门禁 → 完成。</p>
+        <p class="demo-intro">输入一个主题，模拟体验 Agent-PPT 的生成流程：任务提交 → 队列排队 → 原子认领 → 流式生成 → 图片落版 → VLM 校验 → 导出门禁 → 完成。</p>
         <div class="demo-io">
           <input class="demo-input" id="pptInput" type="text" value="AI Agent 技术趋势" maxlength="40" placeholder="输入 PPT 主题，如：AI Agent 技术趋势">
           <button class="demo-btn" id="pptRun" type="button">开始生成</button>
@@ -406,7 +410,7 @@ textarea.demo-input{resize:vertical;min-height:86px;line-height:1.7}
       </div>
 
       <div class="demo-panel" id="p2">
-        <p class="demo-intro">粘贴一段英文，体验 SSE 流式翻译：译文逐段边生成边推送，进度实时可见。可一键填入示例。</p>
+        <p class="demo-intro">粘贴一段英文，模拟体验流式翻译交互：译文逐段边生成边推送，进度实时可见。可一键填入示例。</p>
         <div class="demo-io">
           <textarea class="demo-input" id="trInput" placeholder="粘贴英文段落…"></textarea>
           <div style="display:flex;gap:12px;flex-wrap:wrap">
@@ -427,7 +431,7 @@ textarea.demo-input{resize:vertical;min-height:86px;line-height:1.7}
       </div>
 
       <div class="demo-panel" id="p3">
-        <p class="demo-intro">输入一个研究问题，体验学术 Agent 的多库联合检索：5 个学术源并行检索 → 结果去重 → 按质量排序。</p>
+        <p class="demo-intro">输入一个研究问题，模拟体验学术 Agent 的多库联合检索：5 个学术源并行检索 → 结果去重 → 按质量排序。</p>
         <div class="demo-io">
           <input class="demo-input" id="acInput" type="text" value="大模型 Agent 可靠性" maxlength="40" placeholder="输入研究问题，如：RAG 检索增强">
           <button class="demo-btn" id="acRun" type="button">开始检索</button>
@@ -443,345 +447,21 @@ textarea.demo-input{resize:vertical;min-height:86px;line-height:1.7}
           <div class="src-row"><span class="st"></span><span class="sname">CNKI 知网</span><span class="smsg">等待连接</span></div>
         </div>
         <div class="results" id="acResults"></div>
-        <div class="demo-note">演示模式 · 前端模拟检索过程；真实检索聚合多源学术库，请在 www.lingxixiangban.com 体验</div>
+        <div class="demo-note">模拟演示 · 下方文献、来源、命中数量及相关度均为示例数据，不可作为真实检索结果引用。真实功能请通过产品入口访问。</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== 项目总览 ===== -->
-<section class="section" id="overview">
-  <div class="wrap">
-    <div class="sec-head" data-reveal>
-      <div class="sec-kicker">SELECTED WORKS</div>
-      <h2 class="sec-title">两个上线产品</h2>
-      <p class="sec-sub">每个项目都是一次「从需求到上线」的完整闭环。下面这两个产品至今在线上运行，点进去就能直接使用。</p>
-    </div>
-    <div class="overview-grid">
-      <a class="glass ov-card hoverable" data-reveal href="#agentppt">
-        <div class="ov-num num">01</div>
-        <div class="ov-top">
-          <div class="ov-ico">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2" /><path d="M8 21h8m-4-4v4" /><path d="m6 8 4 4-4 4" /></svg>
-          </div>
-          <span class="ov-name">Agent-PPT</span>
-          <span class="badge">主力项目</span>
-        </div>
-        <p class="ov-desc">对话式 AI 生成 PPT。主导任务队列架构改造，把成功率从 60% 提升到 95%+，并独立完成 v2/v3 智能体编排。</p>
-        <div class="ov-tags">
-          <span class="mini-tag">任务状态机</span><span class="mini-tag">异步架构</span><span class="mini-tag">智能体编排</span><span class="mini-tag">VLM 校验</span>
-        </div>
-        <span class="ov-go">查看项目复盘
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6" /></svg>
-        </span>
-      </a>
-      <a class="glass ov-card hoverable" data-reveal href="#translate" style="transition-delay:.1s">
-        <div class="ov-num num">02</div>
-        <div class="ov-top">
-          <div class="ov-ico">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h9m-2.5 0L8 13m0 0L5 5m3 8 3-8" /><path d="M13 8h7l-3.5 7M17.5 8 14 15" /><path d="M3 19h9m-2.5 0L8 15m0 0 2.5 4" /></svg>
-          </div>
-          <span class="ov-name">沁言学术翻译</span>
-          <span class="badge">独立搭建</span>
-        </div>
-        <p class="ov-desc">学术文档 AI 翻译，保版式 PDF 导出。独立完成从翻译引擎到 512MB 大文档防护、SSE 断点续传的全栈实现。</p>
-        <div class="ov-tags">
-          <span class="mini-tag">PDF 保版式</span><span class="mini-tag">SSE 续传</span><span class="mini-tag">OOM 防护</span><span class="mini-tag">结算防重</span>
-        </div>
-        <span class="ov-go">查看项目复盘
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6" /></svg>
-        </span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 项目一：Agent-PPT ===== -->
-<section class="section" id="agentppt">
-  <div class="wrap">
-    <div class="glass proj-hero" data-reveal>
-      <div class="proj-head">
-        <div class="proj-title-row">
-          <h2 class="proj-title">Agent-PPT</h2>
-          <span class="badge">主力项目</span>
-          <a class="proj-url" href="https://app.qinyanai.com" target="_blank" rel="noopener">app.qinyanai.com
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7m0 0H8m9 0v9" /></svg>
-          </a>
-        </div>
-        <p class="proj-one">对话式 AI 生成 PPT —— 说一句话，自动生成一套可编辑的演示文稿。</p>
-        <p class="proj-lead">我在这里承担任务架构改造与智能体编排两大块：把原来「浏览器开着任务才活着」的直连架构，重构为高可用的异步任务系统，并独立实现 v2/v3 两代智能体编排流程。</p>
-        <div class="btn-row">
-          <a class="btn primary" href="https://app.qinyanai.com" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3v18l14-9L6 3z" /></svg>
-            打开产品体验
-          </a>
-          <a class="btn ghost" href="#agentppt-metrics">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5m0 14h16" /><path d="m8 15 3-4 3 2 4-6" /></svg>
-            看关键数据
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="sub-head" data-reveal>核心改造 · 架构演进</div>
-    <div class="before-after" data-reveal>
-      <div class="ba-card before">
-        <span class="ba-label">改造前</span>
-        <div class="ba-title">SSE 直连 · 任务绑死在浏览器连接上</div>
-        <p>生成任务通过 SSE 长连接直连前端。浏览器一刷新、一关闭，任务就断掉，用户得从头再来 —— 线上成功率只有 60% 左右。</p>
-      </div>
-      <div class="ba-card after">
-        <span class="ba-label">改造后</span>
-        <div class="ba-title">Celery 独立队列 · 任务与连接解绑</div>
-        <p>任务进入独立队列由 worker 异步执行，页面级 checkpoint 记录进度。任务生命周期与浏览器连接彻底解绑，线上成功率稳定在 95%+。</p>
-      </div>
-    </div>
-
-    <div class="sub-head" data-reveal>任务状态机 · 8 态流转</div>
-    <div class="glass" data-reveal style="padding:34px 26px">
-      <div class="flow" id="stateFlow">
-        <div class="flow-step"><div class="flow-node"><span class="flow-dot num">1</span><span class="flow-label">任务提交</span></div></div>
-        <div class="flow-arrow"></div>
-        <div class="flow-step"><div class="flow-node"><span class="flow-dot num">2</span><span class="flow-label">队列排队</span></div></div>
-        <div class="flow-arrow"></div>
-        <div class="flow-step"><div class="flow-node"><span class="flow-dot num">3</span><span class="flow-label">原子认领</span></div></div>
-        <div class="flow-arrow"></div>
-        <div class="flow-step"><div class="flow-node"><span class="flow-dot num">4</span><span class="flow-label">流式生成</span></div></div>
-        <div class="flow-arrow"></div>
-        <div class="flow-step"><div class="flow-node"><span class="flow-dot num">5</span><span class="flow-label">图片落版</span></div></div>
-        <div class="flow-arrow"></div>
-        <div class="flow-step"><div class="flow-node"><span class="flow-dot num">6</span><span class="flow-label">VLM 校验</span></div></div>
-        <div class="flow-arrow"></div>
-        <div class="flow-step"><div class="flow-node"><span class="flow-dot num">7</span><span class="flow-label">导出门禁</span></div></div>
-        <div class="flow-arrow"></div>
-        <div class="flow-step"><div class="flow-node"><span class="flow-dot num">8</span><span class="flow-label">任务完成</span></div></div>
-      </div>
-    </div>
-
-    <div class="sub-head" data-reveal>可靠性机制 · 四道防线</div>
-    <div class="reli-grid" data-reveal>
-      <div class="glass reli hoverable">
-        <div class="r-ico">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3" /><circle cx="12" cy="15" r="1.6" /></svg>
-        </div>
-        <h4>Worker 原子认领</h4>
-        <p>数据库行锁 + 执行令牌防重，同一个任务不会被两个 worker 重复执行。</p>
-      </div>
-      <div class="glass reli hoverable">
-        <div class="r-ico">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.6" /><path d="M20 4v4h-4" /></svg>
-        </div>
-        <h4>Stale 任务回收</h4>
-        <p>异常中断的僵尸任务自动检测回收，避免任务卡死、资源泄漏。</p>
-      </div>
-      <div class="glass reli hoverable">
-        <div class="r-ico">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 18 0" /><path d="M3 12h4l2-3 3 6 2-3h7" /><path d="M5 12h14" /></svg>
-        </div>
-        <h4>请求幂等防重</h4>
-        <p>重复提交只执行一次，从源头解决重复扣费问题。</p>
-      </div>
-      <div class="glass reli hoverable">
-        <div class="r-ico">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5c0 4.5 3 7.5 7 10 4-2.5 7-5.5 7-10V6l-7-3z" /><path d="m9 12 2 2 4-4" /></svg>
-        </div>
-        <h4>导出前状态门禁</h4>
-        <p>状态不满足不导出，杜绝半成品 PPT 文件流入用户手里。</p>
-      </div>
-    </div>
-
-    <div class="sub-head" data-reveal>智能体编排 · v2/v3 两代</div>
-    <div class="glass" data-reveal style="padding:32px 30px">
-      <p style="font-size:14.5px;color:var(--text2);line-height:1.9;margin-bottom:18px">独立实现 v2/v3 智能体编排（前后端 153 条提交），核心是让「对话生成 PPT」这件事可拆解、可校验、可降级：</p>
-      <div class="feat-grid">
-        <div class="feat">
-          <div class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10" /></svg></div>
-          <h4>分批流式大纲</h4>
-          <p>大纲分批生成、流式推送，用户边看边改，不用等全部完成。</p>
-        </div>
-        <div class="feat">
-          <div class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M7 15h4m-4-4h10" /></svg></div>
-          <h4>页数增量合成</h4>
-          <p>按页增量生成，新增一页不影响已生成页面，支持任意续改。</p>
-        </div>
-        <div class="feat">
-          <div class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><path d="m21 15-5-5L5 21" /></svg></div>
-          <h4>图片落版校验</h4>
-          <p>AI 配图自动校验与版面匹配，不合格的图不进页面。</p>
-        </div>
-        <div class="feat">
-          <div class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" /><circle cx="12" cy="12" r="3" /></svg></div>
-          <h4>VLM 视觉复核降级</h4>
-          <p>视觉模型复核关键页面，异常时自动降级重试，保证出片质量。</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="glass metrics" id="agentppt-metrics" data-reveal>
-      <div class="metrics-title">关键数据</div>
-      <div class="metric-row">
-        <div class="stat">
-          <div class="label">线上成功率</div>
-          <div class="value num"><span class="cnt" data-target="95">0</span><span style="font-size:.45em;color:var(--text3);margin-left:4px">%+</span></div>
-          <div class="sub">任务队列高可用改造后稳定水平</div>
-        </div>
-        <div class="stat">
-          <div class="label">任务状态机</div>
-          <div class="value num"><span class="cnt" data-target="8">0</span><span style="font-size:.45em;color:var(--text3);margin-left:4px">态</span></div>
-          <div class="sub">全生命周期流转可控</div>
-        </div>
-        <div class="stat">
-          <div class="label">智能体编排提交</div>
-          <div class="value num"><span class="cnt" data-target="153">0</span><span style="font-size:.45em;color:var(--text3);margin-left:4px">条</span></div>
-          <div class="sub">v2/v3 前后端独立实现</div>
-        </div>
-        <div class="stat">
-          <div class="label">核心改造方向</div>
-          <div class="value num" style="font-size:clamp(24px,3.6vw,40px)">连接解绑</div>
-          <div class="sub">任务与浏览器生命周期彻底分离</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 项目二：沁言学术翻译 ===== -->
-<section class="section" id="translate">
-  <div class="wrap">
-    <div class="glass proj-hero" data-reveal>
-      <div class="proj-head">
-        <div class="proj-title-row">
-          <h2 class="proj-title">沁言学术翻译</h2>
-          <span class="badge">独立搭建</span>
-          <a class="proj-url" href="https://translate.qinyanai.com" target="_blank" rel="noopener">translate.qinyanai.com
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7m0 0H8m9 0v9" /></svg>
-          </a>
-        </div>
-        <p class="proj-one">学术文档 AI 翻译 —— 上传论文，得到保留版式的双语对照 PDF。</p>
-        <p class="proj-lead">这个产品由我从零独立搭建：翻译引擎、前后端、文件解析到导出全链路一个人完成，重点解决了大文档不崩、长任务不断、重复请求不扣钱三个硬问题。</p>
-        <div class="btn-row">
-          <a class="btn primary" href="https://translate.qinyanai.com" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3v18l14-9L6 3z" /></svg>
-            打开产品体验
-          </a>
-          <a class="btn ghost" href="#translate-metrics">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5m0 14h16" /><path d="m8 15 3-4 3 2 4-6" /></svg>
-            看关键数据
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="sub-head" data-reveal>功能亮点 · 四个硬问题</div>
-    <div class="feat-grid" data-reveal>
-      <div class="glass feat hoverable">
-        <div class="f-ico">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9l-6-6z" /><path d="M14 3v6h6" /><path d="M8 13h8m-8 4h5" /></svg>
-        </div>
-        <h4>保版式 PDF 导出</h4>
-        <p>翻译结果保留原论文的版式、公式与图表位置，导出即可直接使用。</p>
-      </div>
-      <div class="glass feat hoverable">
-        <div class="f-ico">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V4h16v3" /><path d="M9 20h6" /><path d="M12 4v16" /><path d="m4 7 2 13h12l2-13" /></svg>
-        </div>
-        <h4>512MB 大文档 OOM 防护</h4>
-        <p>超大文档分块处理 + 内存水位控制，长文档不崩、不爆内存。</p>
-      </div>
-      <div class="glass feat hoverable">
-        <div class="f-ico">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6" /><path d="m11 8-6 6" /><path d="M14 9h3a3 3 0 0 1 0 6h-3v-6z" /><path d="M17 15v3m-3-3h3" /></svg>
-        </div>
-        <h4>双语对照</h4>
-        <p>原文与译文逐段对照，方便学术阅读与核对术语。</p>
-      </div>
-      <div class="glass feat hoverable">
-        <div class="f-ico">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 2" /><circle cx="12" cy="12" r="9" /></svg>
-        </div>
-        <h4>历史管理</h4>
-        <p>翻译记录与结果持久化保存，随时回看、重新导出。</p>
-      </div>
-    </div>
-
-    <div class="sub-head" data-reveal>深度研究 · 长任务与结算</div>
-    <div class="before-after" data-reveal>
-      <div class="ba-card">
-        <span class="ba-label">SSE 流断点续传</span>
-        <div class="ba-title">基于 Redis 的流式续传</div>
-        <p>长文档翻译中途断网不再重来：进度与已生成内容写入 Redis，恢复后从断点继续，不浪费已完成的 token。</p>
-      </div>
-      <div class="ba-card">
-        <span class="ba-label">结算加固</span>
-        <div class="ba-title">先持久化、后扣费、防重扣</div>
-        <p>翻译结果落库确认后才扣费；重复请求与失败重试有幂等保护，用户不会为同一次翻译被扣两次钱。</p>
-      </div>
-    </div>
-
-    <div class="glass metrics" id="translate-metrics" data-reveal>
-      <div class="metrics-title">关键数据</div>
-      <div class="metric-row">
-        <div class="stat">
-          <div class="label">大文档防护</div>
-          <div class="value num"><span class="cnt" data-target="512">0</span><span style="font-size:.45em;color:var(--text3);margin-left:4px">MB</span></div>
-          <div class="sub">OOM 防护 · 分块处理</div>
-        </div>
-        <div class="stat">
-          <div class="label">断点续传</div>
-          <div class="value num"><span class="cnt" data-target="100">0</span><span style="font-size:.45em;color:var(--text3);margin-left:4px">%</span></div>
-          <div class="sub">基于 Redis · 进度不丢失</div>
-        </div>
-        <div class="stat">
-          <div class="label">结算防重</div>
-          <div class="value num">幂等</div>
-          <div class="sub">先持久化 · 后扣费</div>
-        </div>
-        <div class="stat">
-          <div class="label">产品形态</div>
-          <div class="value num" style="font-size:clamp(24px,3.6vw,40px)">全栈闭环</div>
-          <div class="sub">一个人从零搭建到上线</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 能力总结 ===== -->
-<section class="section" id="skills">
-  <div class="wrap">
-    <div class="sec-head" data-reveal>
-      <div class="sec-kicker">WHAT THESE SHIP</div>
-      <h2 class="sec-title">两个项目，沉淀了什么</h2>
-      <p class="sec-sub">做作品集的意义在于：每一个技术词后面都有真实上线在跑的系统做支撑，而不是简历上的一句口号。</p>
-    </div>
-    <div class="glass skill-band" data-reveal>
-      <div class="line">
-        <span class="lv">架构</span>
-        <div class="chips">
-          <span>任务状态机</span><span>Celery 异步队列</span><span>连接解绑</span><span>原子认领</span><span>幂等防重</span>
-        </div>
-      </div>
-      <div class="line">
-        <span class="lv">工程</span>
-        <div class="chips">
-          <span>Python</span><span>Django</span><span>FastAPI</span><span>Redis</span><span>MySQL</span><span>SSE 流式</span><span>分块处理</span>
-        </div>
-      </div>
-      <div class="line">
-        <span class="lv">AI</span>
-        <div class="chips">
-          <span>大模型 API 工程化</span><span>RAG</span><span>智能体编排</span><span>VLM 视觉校验</span><span>降级重试</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 尾部 CTA ===== -->
+<section class="section" id="agentppt"><div class="wrap"><div class="glass proj-hero"><div class="proj-title-row"><h2 class="proj-title">Agent PPT</h2><span class="badge">企业项目</span></div><p class="proj-one">对话式生成 · 任务恢复与交互反馈</p><div class="product-notes"><div><h3>需求分析</h3><p>围绕“主题输入—大纲确认—页面生成—文件交付”梳理用户流程，拆解<b>页数控制、进度反馈、内容保留与任务恢复</b>需求。</p></div><div><h3>产品策略</h3><p>参与<b>Agent编排、Prompt约束与JSON Schema</b>迭代；在大纲、图片落版及页面呈现环节增加质量门禁，结合<b>VLM复核与异常降级</b>完善生成流程。</p></div><div><h3>交互验收</h3><p>基于<b>状态机、SSE与页面级checkpoint</b>验证刷新、断网重连及任务隔离；跟进Bad Case修复，复盘整理PRD、原型及验收用例。</p></div></div><div class="btn-row"><a class="btn primary" href="https://app.qinyanai.com" target="_blank" rel="noopener">打开线上产品 ↗</a><a class="btn ghost" href="../huangshulei/aippt-case.html">查看任务恢复复盘 →</a></div></div><div class="before-after" id="agentppt-metrics"><div class="ba-card"><span class="ba-label">方案取舍</span><p>让后台任务与浏览器连接分开管理，避免页面断开后已生成内容无法恢复；通过分阶段校验和异常降级，兼顾生成质量与交付连续性。</p></div><div class="ba-card"><span class="ba-label">验证实践</span><p>部署测试环境，检查重连后的任务状态、内容保留和多任务隔离，结合反馈与日志跟进修复复验。PRD与原型为基于实际项目补充的复盘作品。</p></div></div></div></section>
+<section class="section" id="translate"><div class="wrap"><div class="glass proj-hero"><div class="proj-title-row"><h2 class="proj-title">沁言学术翻译</h2><span class="badge">企业项目</span></div><p class="proj-one">学术阅读 · 双语对照与文档交付</p><div class="product-notes"><div><h3>需求洞察</h3><p>面向学术文档阅读与交付，梳理“解析—翻译—阅读—导出”流程，拆解<b>术语一致性、双语对照与版式保真</b>需求。</p></div><div><h3>产品方案</h3><p>结合<b>System Prompt、术语库注入与风格控制</b>明确翻译规则；规划历史管理、PDF导出及大文档防护，梳理功能边界与异常反馈。</p></div><div><h3>迭代验收</h3><p>借助AI Coding推进功能落地，依据<b>处理阶段与段落完成量</b>反馈进度，将公式、表格、参考文献与排版纳入验收检查点。</p></div></div><div class="btn-row"><a class="btn primary" href="https://translate.qinyanai.com" target="_blank" rel="noopener">打开线上产品 ↗</a></div></div><div class="before-after" id="translate-metrics"><div class="ba-card"><span class="ba-label">方案取舍</span><p>用Prompt约束模型只处理翻译任务，用文档规则保护公式与引用；进度反馈依据实际处理状态，兼顾在线阅读体验与离线文件交付。</p></div><div class="ba-card"><span class="ba-label">边界场景</span><p>围绕长文档、中断与重复请求，研究SSE断点续传、结果持久化及计费一致性，梳理“先保存结果、后扣费”的处理顺序与验证要点。</p></div></div></div></section>
+<section class="section" id="xiangban"><div class="wrap"><div class="glass proj-hero"><div class="proj-title-row"><h2 class="proj-title">湘伴学术Agent</h2><span class="badge">湖南移动合作项目</span></div><p class="proj-one">大学生学术检索 · 私有化交付</p><div class="product-notes"><div><h3>需求分析</h3><p>面向大学生资料检索与外文阅读，拆解<b>多库检索、去重排序、领域过滤及翻译</b>需求，结合合作方部署条件明确权限与额度规则。</p></div><div><h3>产品方案</h3><p>参与<b>Agent与RAG工作流</b>设计，支持最多<b>5库联合检索</b>，将业务规则转化为节点输入输出、异常分支与交互反馈。</p></div><div><h3>集成交付</h3><p>借助AI Coding推进接口联调与<b>FastAPI＋Qdrant私有化部署</b>，结合日志跟进排队、重复请求及额度异常处理。</p></div></div><div class="btn-row"><a class="btn primary" href="https://www.lingxixiangban.com" target="_blank" rel="noopener">打开线上产品 ↗</a></div></div><div class="before-after" id="xiangban-metrics"><div class="ba-card"><span class="ba-label">产品取舍</span><p>同时关注大学生的查找、筛选与阅读体验，以及合作方的权限、额度与部署要求；区分业务限制与系统异常，给出不同的状态提示和处理路径。</p></div><div class="ba-card"><span class="ba-label">交付实践</span><p>参与工作流搭建、功能实现与接口联调，支持客户环境适配，跟进检索、会话与权限相关问题。</p></div></div></div></section>
+<section class="section" id="rental"><div class="wrap"><div class="glass proj-hero"><div class="proj-title-row"><h2 class="proj-title">租好房</h2><span class="badge">个人作品</span></div><p class="proj-one">房东直租平台 · 0→1产品实践</p><div class="product-notes"><div><h3>需求与定位</h3><p>聚焦中介费用与信息筛选成本，定位<b>房东直租平台</b>，梳理房东发布、租客搜索与双方沟通的核心路径。</p></div><div><h3>产品设计</h3><p>划定<b>MVP范围</b>，设计房源、求租双入口与发布表单；迭代信息架构，制定<b>发布审核、举报去重及有效违规处罚</b>规则。</p></div><div><h3>开发验证</h3><p>使用<b>Codex＋React/TypeScript＋Node.js</b>完成可交互Demo与数据持久化；根据接入成本选择邮箱验证，跑通公网注册、邮件收码与登录。</p></div></div><div class="btn-row"><a class="btn primary" href="mailto:h123577@163.com?subject=租好房项目交流">联系交流与演示 →</a></div></div><div class="before-after" id="rental-metrics"><div class="ba-card"><span class="ba-label">方案取舍</span><p>账号验证先采用邮箱方案，控制接入成本；举报处罚由累计举报直接封禁，调整为去重、审核确认有效违规后处理，降低误判风险。</p></div><div class="ba-card"><span class="ba-label">当前进展</span><p>完成Demo、数据持久化及真实邮箱注册登录验证。房源真实性需要核验与运营机制支撑；目前作为个人作品展示，可联系交流产品方案与演示。</p></div></div></div></section>
+<section class="section" id="skills"><div class="wrap"><div class="sec-head"><div class="sec-kicker">PRODUCT CAPABILITIES</div><h2 class="sec-title">从需求到验证的产品实践</h2></div><div class="glass skill-band"><div class="line"><span class="lv">产品</span><p>需求分析 · 竞品分析 · 优先级规划 · PRD · Figma · 信息架构与交互原型</p></div><div class="line"><span class="lv">AI</span><p>Prompt分层设计 · JSON Schema · RAG · Agent工作流 · LangChain（了解）</p></div><div class="line"><span class="lv">验证</span><p>MVP · Cursor / Claude Code / Codex · Bad Case分析 · 场景验收 · 回归验证</p></div><div class="line"><span class="lv">交付</span><p>需求对齐 · 接口联调 · Git / GitLab · Docker · 私有化部署</p></div></div></div></section><!-- ===== 尾部 CTA ===== -->
 <section class="cta" id="contact">
   <div class="wrap">
-    <h2 class="cta-title" data-reveal>一起做点有意思的事</h2>
-    <p class="cta-sub" data-reveal style="transition-delay:.1s">AI 平台工程化 · 大模型应用 · 高可用架构 —— 欢迎联系，随时可以开始一段新项目。</p>
+    <h2 class="cta-title" data-reveal>聊聊下一个AI产品</h2>
+    <p class="cta-sub" data-reveal style="transition-delay:.1s">求职方向：AI产品经理。欢迎交流需求分析、Agent应用、原型验证与产品交付。</p>
     <div class="cta-btns" data-reveal style="transition-delay:.2s">
       <a class="btn primary" href="tel:17744810952">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z" /></svg>
@@ -798,7 +478,7 @@ textarea.demo-input{resize:vertical;min-height:86px;line-height:1.7}
     </div>
     <div class="footer">
       <div class="f-name">黄书磊 · 作品集</div>
-      <div class="f-line">© 2026 黄书磊 · AI 全栈开发工程师 · 北京</div>
+      <div class="f-line">© 2026 黄书磊 · AI产品 · 应用方向 · 北京</div>
       <div class="f-line">
         <a href="https://h777000.github.io/resume/huangshulei/" target="_blank" rel="noopener">个人简历</a> ·
         <a href="https://app.qinyanai.com" target="_blank" rel="noopener">Agent-PPT</a> ·
@@ -910,7 +590,7 @@ textarea.demo-input{resize:vertical;min-height:86px;line-height:1.7}
       ["一句话说清主题", "目标用户与场景", "交付什么价值"],
       ["任务状态机 · 8 态流转", "Celery 异步队列", "连接解绑 · 高可用"],
       ["原子认领防重", "幂等与状态门禁", "VLM 视觉校验"],
-      ["线上成功率 95%+", "153 条独立提交", "可编辑 PPT 输出"]
+      ["进度反馈与内容保留", "失败恢复与结果校验", "可编辑 PPT 交付"]
     ];
     var out = $q("#pptOut");
     out.innerHTML = "";
@@ -1010,7 +690,7 @@ textarea.demo-input{resize:vertical;min-height:86px;line-height:1.7}
   }
   function buildResults(q){
     var items = [
-      ["基于任务状态机的 AI Agent 可靠性设计", "arXiv", "2026", 96, "提出 8 态流转 + 原子认领机制，将长任务成功率稳定在 95% 以上，并在生产环境得到验证。"],
+      ["基于任务状态机的 AI Agent 可靠性设计", "arXiv", "2026", 96, "模拟文献摘要：以任务状态与断点保存机制说明长任务恢复思路；仅用于展示检索结果布局。"],
       ["大语言模型智能体编排：从直连到异步解耦", "Google Scholar", "2025", 91, "系统梳理 SSE 直连的断点问题，给出 Celery 独立队列 + 连接解绑的架构演进路径。"],
       ["面向学术场景的多库联合检索与结果去重", "CNKI 知网", "2026", 87, "聚合多源学术库，5 库联合检索、按质量评分排序并自动去重，显著降低漏检率。"]
     ];
