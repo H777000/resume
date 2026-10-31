@@ -14,7 +14,7 @@
     const details = document.createElement('details'); details.className = 'portfolio-demo';
     const label = ['Agent PPT', '学术翻译'][i];
     const summary = document.createElement('summary');
-    summary.innerHTML = '<span class="demo-entry-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="13" rx="3"/><path d="M8 21h8M12 17v4"/><path d="m10 8 5 3-5 3Z" fill="currentColor" stroke="none"/></svg></span><span class="demo-entry-copy"><span class="demo-entry-title">在线体验 · '+label+'</span><span class="demo-entry-subtitle">'+(kind==='ppt'?'输入主题，逐页生成可编辑演示文稿':'上传文档或输入文字，体验双语翻译')+'</span></span><span class="demo-entry-action"><span class="demo-entry-open">展开体验</span><span class="demo-entry-close">收起体验</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m6 8 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
+    summary.innerHTML = '<span class="demo-art demo-art-'+kind+'" aria-hidden="true"><span class="demo-art-back"></span><span class="demo-art-front">'+(kind==='ppt'?'<i></i><b></b><em></em>':'<b>A</b><i>文</i>')+'</span></span><span class="demo-entry-copy"><span class="demo-entry-eyebrow">互动演示</span><span class="demo-entry-title">亲手体验 '+label+'</span><span class="demo-entry-subtitle">'+(kind==='ppt'?'从一个主题，到可编辑的演示文稿':'从一段文字，到双语对照阅读')+'</span></span><span class="demo-entry-action"><span class="demo-entry-open">开始体验</span><span class="demo-entry-close">收起演示</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
     const box = document.createElement('div'); box.className = 'portfolio-demo-body';
     details.append(summary, box); card.append(details);
     function mountDemo() {
@@ -42,6 +42,11 @@
       frame.addEventListener('error', () => { loading.textContent = '体验服务暂时无法连接，请稍后重试。'; });
       box.append(frame);
     }
-    details.addEventListener('toggle', mountDemo);
+    details.addEventListener('toggle', () => {
+      mountDemo();
+      if (details.open && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        box.animate([{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'translateY(0)'}],{duration:320,easing:'ease-out'});
+      }
+    });
   });
 })();
